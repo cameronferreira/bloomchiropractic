@@ -378,8 +378,8 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   background: var(--sage-dark);
   border-color: transparent;
 }
-.service-card--accent h3 { color: #fff; }
-.service-card--accent p  { color: #c8dbc9; }
+.service-card--accent h3 { color: #ffffff; }
+.service-card--accent p  { color: #e8f2e8; }
 .service-card__icon { width: 48px; height: 48px; margin-bottom: 20px; }
 .service-card__icon svg { width: 48px; height: 48px; }
 .service-card h3 {
@@ -587,9 +587,9 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   border-color: transparent;
   transform: translateY(-12px);
 }
-.testimonial-card--featured p       { color: #c8dbc9; }
-.testimonial-card--featured footer strong { color: #fff; }
-.testimonial-card--featured footer span  { color: rgba(255,255,255,.5); }
+.testimonial-card--featured p       { color: #e8f2e8; }
+.testimonial-card--featured footer strong { color: #ffffff; }
+.testimonial-card--featured footer span  { color: rgba(255,255,255,.75); }
 .testimonial-card--featured::before { color: rgba(255,255,255,.12); }
 
 .testimonial-card p {
@@ -775,7 +775,7 @@ details[open] .faq__question         { color: var(--sage-dark); }
 .footer__contact .btn--primary { background: var(--sage); border-color: var(--sage); margin-top: 16px; }
 .footer__bottom { padding: 24px 0; text-align: center; }
 .footer__bottom p { font-size: 12px; color: rgba(255,255,255,.35); }
-.footer__disclaimer { font-size: 11px !important; color: rgba(255,255,255,.25) !important; margin-top: 4px; }
+.footer__disclaimer { font-size: 11px !important; color: rgba(255,255,255,.45) !important; margin-top: 4px; }
 
 /* WHATSAPP FLOAT */
 .whatsapp-float {

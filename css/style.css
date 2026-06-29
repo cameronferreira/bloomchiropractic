@@ -378,7 +378,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   background: var(--sage-dark);
   border-color: transparent;
 }
-.service-card--accent h3 { color: #ffffff; }
+.service-card--accent h3 { color: #ffffff !important; }
 .service-card--accent p  { color: #e8f2e8 !important; }
 .service-card__icon { width: 48px; height: 48px; margin-bottom: 20px; }
 .service-card__icon svg { width: 48px; height: 48px; }
@@ -587,9 +587,9 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   border-color: transparent;
   transform: translateY(-12px);
 }
-.testimonial-card--featured p       { color: #e8f2e8; }
-.testimonial-card--featured footer strong { color: #ffffff; }
-.testimonial-card--featured footer span  { color: rgba(255,255,255,.75); }
+.testimonial-card--featured p       { color: #e8f2e8 !important; }
+.testimonial-card--featured footer strong { color: #ffffff !important; }
+.testimonial-card--featured footer span  { color: rgba(255,255,255,.75) !important; }
 .testimonial-card--featured::before { color: rgba(255,255,255,.12); }
 
 .testimonial-card p {

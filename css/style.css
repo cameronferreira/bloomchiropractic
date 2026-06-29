@@ -379,7 +379,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   border-color: transparent;
 }
 .service-card--accent h3 { color: #ffffff; }
-.service-card--accent p  { color: #e8f2e8; }
+.service-card--accent p  { color: #e8f2e8 !important; }
 .service-card__icon { width: 48px; height: 48px; margin-bottom: 20px; }
 .service-card__icon svg { width: 48px; height: 48px; }
 .service-card h3 {

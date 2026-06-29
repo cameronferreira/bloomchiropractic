@@ -287,24 +287,6 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   align-items: flex-end;
   position: relative;
 }
-.hero__badge {
-  position: absolute;
-  bottom: 20px;
-  left: -16px;
-  background: var(--gold);
-  color: #fff;
-  border-radius: 50%;
-  width: 88px;
-  height: 88px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-size: 11px;
-  font-weight: 700;
-  line-height: 1.4;
-  box-shadow: var(--shadow);
-}
 .hero__image-placeholder,
 .hero__image {
   width: 100%;

@@ -822,6 +822,8 @@ details[open] .faq__question         { color: var(--sage-dark); }
   .hero__image-wrap { justify-content: center; }
   .hero__image-placeholder, .hero__image { max-width: 300px; }
   .about__grid { grid-template-columns: 1fr; gap: 48px; }
+  .about__image-wrap { order: 2; }
+  .about__content { order: 1; }
   .about__badge { right: 16px; }
   .services__grid { grid-template-columns: repeat(2, 1fr); }
   .why__grid { grid-template-columns: repeat(2, 1fr); }

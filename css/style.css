@@ -102,7 +102,6 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   font-size: 17px;
   color: var(--text-muted);
   max-width: 520px;
-  margin: 0 auto;
   text-align: left;          /* LEFT: body copy under section heading */
 }
 
@@ -281,7 +280,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 }
 .condition-pill:hover { background: var(--sage-dark); border-color: var(--sage-dark); color: #fff; }
 .conditions__note {
-  text-align: center;        /* CENTER: single short sentence CTA */
+  text-align: left;
   font-size: 15px;
   color: var(--text);
 }
@@ -369,7 +368,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   text-align: left;          /* LEFT: sits under price, left context */
 }
 .pricing__hint {
-  text-align: center;        /* CENTER: short 1-line guidance note */
+  text-align: left;
   font-size: 13px;
   color: var(--text-muted);
   font-style: italic;
@@ -452,7 +451,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .testimonial-card footer        { display: flex; flex-direction: column; gap: 2px; }
 .testimonial-card footer strong { font-size: 14px; font-weight: 600; color: var(--forest); text-align: left; }
 .testimonial-card footer span   { font-size: 12px; color: var(--text-muted); text-align: left; }
-.testimonials__google           { text-align: center; } /* CENTER: single short CTA link */
+.testimonials__google           { text-align: left; }
 .testimonials__google a { font-size: 14px; color: var(--sage-dark); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
 
 /* ── FAQ ── */
@@ -661,6 +660,10 @@ details[open] .faq__question        { color: var(--sage-dark); }
   .section__eyebrow { text-align: center; }
   .hero__heading    { font-size: clamp(36px, 9vw, 52px); text-align: center; }
   .section__heading { font-size: clamp(26px, 7vw, 36px); text-align: center; }
+  .section__sub     { text-align: center; }
+  .conditions__note { text-align: center; }
+  .pricing__hint    { text-align: center; }
+  .testimonials__google { text-align: center; }
   .about__content .section__eyebrow,
   .about__content .section__heading,
   .contact__info .section__eyebrow,

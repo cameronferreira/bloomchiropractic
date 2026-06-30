@@ -80,7 +80,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 
 .section__heading {
   font-family: var(--font-display);
-  font-size: clamp(28px, 4vw, 42px);
+  font-size: clamp(28px, 3.2vw, 36px);
   font-weight: 600;
   line-height: 1.2;
   color: var(--forest);

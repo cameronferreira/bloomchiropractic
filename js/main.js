@@ -86,13 +86,16 @@ window.addEventListener('scroll', () => {
   });
 }, { passive: true });
 
-// ── Sticky Book Now: hide when a Book button is visible ──
+// ── Sticky Book Now: hide when a Book button or the booking section is visible ──
 if ('IntersectionObserver' in window) {
   const mobileBar    = document.querySelector('.book-sticky-mobile');
   const desktopBtn   = document.querySelector('.book-sticky-desktop');
 
-  // Watch all primary book buttons on the page
-  const bookButtons  = document.querySelectorAll('.btn--primary[href="#book"], a.btn--primary');
+  // Watch all primary book buttons AND the booking widget section
+  const watchTargets = [
+    ...document.querySelectorAll('.btn--primary[href="#book"], a.btn--primary'),
+    document.querySelector('#book')
+  ].filter(Boolean);
 
   let visibleCount = 0;
 
@@ -106,11 +109,10 @@ if ('IntersectionObserver' in window) {
     });
 
     const hide = visibleCount > 0;
-
     if (mobileBar)  mobileBar.classList.toggle('hidden', hide);
     if (desktopBtn) desktopBtn.classList.toggle('hidden', hide);
 
   }, { threshold: 0.5 });
 
-  bookButtons.forEach(btn => bookObserver.observe(btn));
+  watchTargets.forEach(el => bookObserver.observe(el));
 }

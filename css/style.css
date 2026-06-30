@@ -449,6 +449,10 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   max-width: 820px;
   margin: 0 auto 48px;
 }
+.pricing__cards--three {
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 1080px;
+}
 .pricing-card {
   background: var(--card-bg);
   border-radius: var(--radius-lg);
@@ -811,6 +815,7 @@ details[open] .faq__question         { color: var(--sage-dark); }
   .services__grid { grid-template-columns: repeat(2, 1fr); }
   .why__grid { grid-template-columns: repeat(2, 1fr); }
   .pricing__cards { grid-template-columns: 1fr; max-width: 440px; }
+  .pricing__cards--three { grid-template-columns: 1fr; max-width: 440px; }
   .testimonials__grid { grid-template-columns: 1fr; }
   .testimonial-card--featured { transform: none; }
   .contact__grid { grid-template-columns: 1fr; gap: 48px; }

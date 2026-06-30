@@ -697,6 +697,7 @@ details[open] .faq__question        { color: var(--sage-dark); }
 
 /* Mobile: hide pill, show bottom bar */
 @media (max-width: 600px) {
+  .about__content .btn { display: block; text-align: center; }
   .book-sticky-desktop { display: none; }
   .book-sticky-mobile  { display: block; }
   body { padding-bottom: 80px; }

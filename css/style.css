@@ -505,10 +505,28 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   color: var(--forest);
   line-height: 1;
 }
-.pricing-card__duration {
+.pricing-card__tagline {
   font-size: 13px;
   color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 20px;
+  min-height: 38px;
+}
+.pricing-card__duration {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--sage-dark);
   margin-bottom: 28px;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.pricing__hint {
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+  font-style: italic;
+  margin: -24px auto 32px;
+  max-width: 480px;
 }
 .pricing-card__includes { margin-bottom: 32px; }
 .pricing-card__includes li {

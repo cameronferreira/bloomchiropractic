@@ -2,11 +2,13 @@
 
 document.getElementById('year').textContent = new Date().getFullYear();
 
+// ── Nav scroll shadow ──
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 10);
 }, { passive: true });
 
+// ── Mobile menu ──
 const toggle   = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
 
@@ -14,14 +16,12 @@ toggle.addEventListener('click', () => {
   const isOpen = navLinks.classList.toggle('open');
   toggle.setAttribute('aria-expanded', isOpen);
 });
-
 navLinks.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', () => {
     navLinks.classList.remove('open');
     toggle.setAttribute('aria-expanded', 'false');
   });
 });
-
 document.addEventListener('click', (e) => {
   if (!nav.contains(e.target)) {
     navLinks.classList.remove('open');
@@ -29,6 +29,7 @@ document.addEventListener('click', (e) => {
   }
 });
 
+// ── Smooth scroll ──
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', (e) => {
     const target = document.querySelector(anchor.getAttribute('href'));
@@ -40,6 +41,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
+// ── Fade-in on scroll ──
 if ('IntersectionObserver' in window) {
   const style = document.createElement('style');
   style.textContent = `.fade-in{opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .5s ease}.fade-in.visible{opacity:1;transform:none}`;
@@ -51,18 +53,19 @@ if ('IntersectionObserver' in window) {
     el.style.transitionDelay = `${(i % 6) * 60}ms`;
   });
 
-  const observer = new IntersectionObserver((entries) => {
+  const fadeObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
+        fadeObserver.unobserve(entry.target);
       }
     });
   }, { threshold: 0.12 });
 
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
 }
 
+// ── Active nav link ──
 const navAnchors = document.querySelectorAll('.nav__links a[href^="#"]');
 const sections   = document.querySelectorAll('section[id]');
 const activeStyle = document.createElement('style');
@@ -82,3 +85,32 @@ window.addEventListener('scroll', () => {
     }
   });
 }, { passive: true });
+
+// ── Sticky Book Now: hide when a Book button is visible ──
+if ('IntersectionObserver' in window) {
+  const mobileBar    = document.querySelector('.book-sticky-mobile');
+  const desktopBtn   = document.querySelector('.book-sticky-desktop');
+
+  // Watch all primary book buttons on the page
+  const bookButtons  = document.querySelectorAll('.btn--primary[href="#book"], a.btn--primary');
+
+  let visibleCount = 0;
+
+  const bookObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        visibleCount++;
+      } else {
+        visibleCount = Math.max(0, visibleCount - 1);
+      }
+    });
+
+    const hide = visibleCount > 0;
+
+    if (mobileBar)  mobileBar.classList.toggle('hidden', hide);
+    if (desktopBtn) desktopBtn.classList.toggle('hidden', hide);
+
+  }, { threshold: 0.5 });
+
+  bookButtons.forEach(btn => bookObserver.observe(btn));
+}

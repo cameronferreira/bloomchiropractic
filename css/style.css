@@ -870,7 +870,7 @@ details[open] .faq__question         { color: var(--sage-dark); }
   .section__sub { text-align: left; }
   .hero__heading { font-size: clamp(36px, 9vw, 52px); }
   .pricing-card { padding: 28px 24px; }
-  .pricing__medical-aid { flex-direction: column; text-align: center; }
+  .pricing__medical-aid { flex-direction: column; }
   .footer__inner { grid-template-columns: 1fr; }
   .booking__placeholder { padding: 40px 24px; }
 }

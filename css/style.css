@@ -227,6 +227,8 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   line-height: 1.5;
   text-align: left;          /* LEFT: body copy */
 }
+.about__content .section__eyebrow,
+.about__content .section__heading { text-align: center; }
 .about__content p  { color: var(--text-muted); margin-bottom: 16px; text-align: left; }
 .about__values     { display: flex; flex-direction: column; gap: 16px; margin: 32px 0; }
 .about__value      { display: flex; gap: 16px; align-items: flex-start; }
@@ -405,7 +407,8 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   margin: 0 auto;
   border: 1px solid var(--border);
 }
-.pricing__medical-aid-icon { flex-shrink: 0; }
+.pricing__medical-aid-icon { flex-shrink: 0; width: 32px; height: 32px; }
+.pricing__medical-aid-icon svg { width: 32px; height: 32px; }
 .pricing__medical-aid strong { display: block; margin-bottom: 4px; color: var(--forest); text-align: left; }
 .pricing__medical-aid p      { font-size: 14px; color: var(--text-muted); text-align: left; } /* LEFT: 66-word paragraph */
 
@@ -506,6 +509,8 @@ details[open] .faq__question        { color: var(--sage-dark); }
 
 /* ── CONTACT ── */
 .contact__grid    { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+.contact__info .section__eyebrow,
+.contact__info .section__heading { text-align: center; }
 .contact__details { display: flex; flex-direction: column; gap: 24px; margin-bottom: 36px; }
 .contact__detail  { display: flex; gap: 16px; align-items: flex-start; }
 .contact__detail svg { flex-shrink: 0; margin-top: 2px; }

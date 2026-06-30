@@ -586,22 +586,67 @@ details[open] .faq__question        { color: var(--sage-dark); }
 .footer__bottom p { font-size: 12px; color: rgba(255,255,255,.35); }
 .footer__disclaimer { font-size: 11px !important; color: rgba(255,255,255,.45) !important; margin-top: 4px; }
 
-/* ── WHATSAPP FLOAT ── */
-.whatsapp-float {
+/* ── DESKTOP STICKY BOOK NOW (right edge, vertically centered) ── */
+.book-sticky-desktop {
+  display: none; /* hidden on mobile, shown on desktop below */
   position: fixed;
-  bottom: 28px; right: 28px;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%) rotate(0deg);
   z-index: 50;
-  width: 56px; height: 56px;
-  border-radius: 50%;
-  background: #25D366;
+  background: var(--sage);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 14px 20px;
+  border-radius: 12px 0 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: -2px 0 16px rgba(30,45,31,.15);
+  transition: background .2s, box-shadow .2s, padding .2s;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.book-sticky-desktop:hover {
+  background: var(--sage-dark);
+  padding-right: 24px;
+  box-shadow: -4px 0 20px rgba(30,45,31,.25);
+}
+
+/* ── MOBILE STICKY BOTTOM BAR ── */
+.book-sticky-mobile {
+  display: none; /* shown only on mobile below */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  padding: 12px 16px;
+  padding-bottom: calc(12px + env(safe-area-inset-bottom));
+  background: rgba(250,250,247,.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid var(--border);
+}
+.book-sticky-mobile__btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 16px rgba(37,211,102,.4);
+  gap: 10px;
+  width: 100%;
+  background: var(--sage);
   color: #fff;
-  transition: transform .2s, box-shadow .2s;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 600;
+  padding: 16px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background .2s;
 }
-.whatsapp-float:hover { transform: scale(1.08); box-shadow: 0 8px 24px rgba(37,211,102,.5); }
+.book-sticky-mobile__btn:hover { background: var(--sage-dark); }
 
 /* ── REDUCED MOTION ── */
 @media (prefers-reduced-motion: reduce) {
@@ -637,8 +682,17 @@ details[open] .faq__question        { color: var(--sage-dark); }
   .footer__brand      { grid-column: 1 / -1; }
 }
 
-/* ── MOBILE (≤600px) ── */
+/* Desktop: show pill, hide mobile bar */
+@media (min-width: 601px) {
+  .book-sticky-desktop { display: flex; }
+  .book-sticky-mobile  { display: none; }
+}
+
+/* Mobile: hide pill, show bottom bar */
 @media (max-width: 600px) {
+  .book-sticky-desktop { display: none; }
+  .book-sticky-mobile  { display: block; }
+  body { padding-bottom: 80px; }
   :root { --nav-h: 64px; }
   .section { padding: 56px 0; }
   .nav__links {

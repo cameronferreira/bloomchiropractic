@@ -56,8 +56,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .section--sage  { background: var(--sage-pale); }
 .section--blush { background: var(--blush); }
 
-/* ── PAGE-LEVEL HEADINGS — always CENTER ── */
-/* These are section titles that float above content, not paired with left body text */
+/* ── PAGE-LEVEL HEADINGS — LEFT on desktop, CENTER on mobile ── */
 .hero__eyebrow,
 .section__eyebrow {
   font-size: 12px;
@@ -66,7 +65,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   text-transform: uppercase;
   color: var(--gold);
   margin-bottom: 12px;
-  text-align: center;        /* CENTER: short 1-line labels */
+  text-align: left;
 }
 .hero__heading {
   font-family: var(--font-display);
@@ -75,7 +74,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   line-height: 1.1;
   color: var(--forest);
   margin-bottom: 24px;
-  text-align: center;        /* CENTER: short 3-line h1 */
+  text-align: left;
 }
 .hero__heading em { font-style: italic; color: var(--sage); }
 
@@ -86,7 +85,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   line-height: 1.2;
   color: var(--forest);
   margin-bottom: 16px;
-  text-align: center;        /* CENTER: short 1-2 line h2s */
+  text-align: left;
 }
 .section__heading em { font-style: italic; color: var(--sage-dark); }
 
@@ -111,7 +110,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .section__header {
   max-width: 640px;
   margin: 0 auto 64px;
-  text-align: center;        /* centers eyebrow + heading as a block */
+  text-align: left;
 }
 
 /* ── BUTTONS — center label inside pill, never flows as reading text ── */
@@ -228,7 +227,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   text-align: left;          /* LEFT: body copy */
 }
 .about__content .section__eyebrow,
-.about__content .section__heading { text-align: center; }
+.about__content .section__heading { text-align: left; }
 .about__content p  { color: var(--text-muted); margin-bottom: 16px; text-align: left; }
 .about__values     { display: flex; flex-direction: column; gap: 16px; margin: 32px 0; }
 .about__value      { display: flex; gap: 16px; align-items: flex-start; }
@@ -510,7 +509,7 @@ details[open] .faq__question        { color: var(--sage-dark); }
 /* ── CONTACT ── */
 .contact__grid    { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
 .contact__info .section__eyebrow,
-.contact__info .section__heading { text-align: center; }
+.contact__info .section__heading { text-align: left; }
 .contact__details { display: flex; flex-direction: column; gap: 24px; margin-bottom: 36px; }
 .contact__detail  { display: flex; gap: 16px; align-items: flex-start; }
 .contact__detail svg { flex-shrink: 0; margin-top: 2px; }
@@ -658,10 +657,16 @@ details[open] .faq__question        { color: var(--sage-dark); }
   }
   .nav__links.open  { display: flex; }
   .nav__toggle      { display: flex; }
+  .hero__eyebrow,
+  .section__eyebrow { text-align: center; }
+  .hero__heading    { font-size: clamp(36px, 9vw, 52px); text-align: center; }
+  .section__heading { font-size: clamp(26px, 7vw, 36px); text-align: center; }
+  .about__content .section__eyebrow,
+  .about__content .section__heading,
+  .contact__info .section__eyebrow,
+  .contact__info .section__heading { text-align: center; }
   .services__grid   { grid-template-columns: 1fr; }
   .why__grid        { grid-template-columns: 1fr; }
-  .section__heading { font-size: clamp(26px, 7vw, 36px); }
-  .hero__heading    { font-size: clamp(36px, 9vw, 52px); }
   .pricing-card     { padding: 28px 24px; }
   .pricing__medical-aid { flex-direction: column; }
   .footer__inner    { grid-template-columns: 1fr; }

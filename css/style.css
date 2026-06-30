@@ -822,9 +822,13 @@ details[open] .faq__question         { color: var(--sage-dark); }
     gap: 40px;
   }
   .hero__bg-motif { display: none; }
-  .hero__sub, .hero__actions, .hero__trust { margin-left: auto; margin-right: auto; }
-  .hero__actions { justify-content: center; }
-  .hero__trust   { align-items: center; }
+  .hero__sub {
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero__actions { justify-content: center; margin-left: auto; margin-right: auto; }
+  .hero__trust   { align-items: flex-start; margin-left: auto; margin-right: auto; }
   .hero__image-wrap { justify-content: center; }
   .hero__image-placeholder, .hero__image { max-width: 300px; }
   .about__grid { grid-template-columns: 1fr; gap: 48px; }
@@ -863,6 +867,7 @@ details[open] .faq__question         { color: var(--sage-dark); }
   .services__grid { grid-template-columns: 1fr; }
   .why__grid { grid-template-columns: 1fr; }
   .section__heading { font-size: clamp(26px, 7vw, 36px); }
+  .section__sub { text-align: left; }
   .hero__heading { font-size: clamp(36px, 9vw, 52px); }
   .pricing-card { padding: 28px 24px; }
   .pricing__medical-aid { flex-direction: column; text-align: center; }

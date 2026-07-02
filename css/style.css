@@ -499,6 +499,7 @@ details[open] .faq__question        { color: var(--sage-dark); }
   border-radius: var(--radius-lg);
   border: 1px solid var(--border);
   overflow: visible;
+  padding: 32px;
 }
 .booking__placeholder { padding: 60px 40px; text-align: center; }
 .booking__placeholder p { margin-bottom: 8px; font-size: 16px; color: var(--text-muted); }

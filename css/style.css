@@ -491,7 +491,7 @@ details[open] .faq__question        { color: var(--sage-dark); }
 .faq__answer p { font-size: 15px; color: var(--text); line-height: 1.7; text-align: left; }
 
 /* ── BOOKING ── */
-.booking { background: var(--warm-white); }
+.booking { background: var(--warm-white); padding-bottom: 48px; }
 .booking__widget-wrap {
   max-width: 1100px;
   margin: 0 auto;
@@ -503,6 +503,7 @@ details[open] .faq__question        { color: var(--sage-dark); }
 .booking__fallback-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 24px; }
 
 /* ── CONTACT ── */
+.contact { padding-top: 48px; }
 .contact__grid    { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
 .contact__info .section__eyebrow,
 .contact__info .section__heading { text-align: left; }

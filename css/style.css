@@ -734,3 +734,159 @@ details[open] .faq__question        { color: var(--sage-dark); }
   .footer__inner    { grid-template-columns: 1fr; }
   .booking__placeholder { padding: 40px 24px; }
 }
+
+/* ============================================================
+   ENHANCED ANIMATIONS & MICRO-INTERACTIONS
+   ============================================================ */
+
+/* ── Service card hover — more pronounced lift + glow ── */
+.service-card {
+  transition: transform 0.35s cubic-bezier(.22,1,.36,1),
+              box-shadow 0.35s cubic-bezier(.22,1,.36,1),
+              border-color 0.35s ease;
+}
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 48px rgba(30,45,31,.13);
+  border-color: var(--sage-light);
+}
+.service-card--accent:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 48px rgba(30,45,31,.2);
+}
+
+/* ── Pricing card hover ── */
+.pricing-card {
+  transition: transform 0.35s cubic-bezier(.22,1,.36,1),
+              box-shadow 0.35s cubic-bezier(.22,1,.36,1);
+}
+.pricing-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(30,45,31,.12);
+}
+.pricing-card--featured:hover {
+  box-shadow: 0 16px 40px rgba(92,122,94,.25);
+}
+
+/* ── Why item hover — border colour transition ── */
+.why__item {
+  transition: border-color 0.3s ease;
+}
+.why__item:hover {
+  border-color: var(--sage);
+}
+.why__number {
+  transition: color 0.3s ease;
+}
+.why__item:hover .why__number {
+  color: var(--sage-pale);
+}
+
+/* ── FAQ hover ── */
+.faq__question {
+  transition: color 0.2s ease;
+}
+.faq__question:hover {
+  color: var(--sage-dark);
+}
+
+/* ── Condition pill hover ── */
+.condition-pill {
+  transition: background 0.2s ease, border-color 0.2s ease,
+              color 0.2s ease, transform 0.2s ease;
+}
+.condition-pill:hover {
+  transform: translateY(-2px);
+}
+
+/* ── Testimonial card hover ── */
+.testimonial-card {
+  transition: transform 0.35s cubic-bezier(.22,1,.36,1),
+              box-shadow 0.35s ease;
+}
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(30,45,31,.1);
+}
+.testimonial-card--featured:hover {
+  transform: translateY(-16px);
+}
+
+/* ── Nav link underline slide ── */
+.nav__links a:not(.nav__cta) {
+  position: relative;
+}
+.nav__links a:not(.nav__cta)::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--sage);
+  transition: width 0.25s ease;
+}
+.nav__links a:not(.nav__cta):hover::after,
+.nav__links a:not(.nav__cta).active::after {
+  width: 100%;
+}
+
+/* ── Button transition enhancement ── */
+.btn {
+  transition: background 0.2s ease, color 0.2s ease,
+              transform 0.2s cubic-bezier(.22,1,.36,1),
+              box-shadow 0.2s ease,
+              border-color 0.2s ease;
+}
+
+/* ── About image wrap overflow hidden for scale effect ── */
+.about__image-wrap {
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+
+/* ── Book sticky desktop — slide in animation ── */
+.book-sticky-desktop {
+  animation: slideInRight 0.5s cubic-bezier(.22,1,.36,1) 1s both;
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.book-sticky-desktop.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(16px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* ── Mobile sticky bar slide up ── */
+.book-sticky-mobile {
+  animation: slideInUp 0.4s cubic-bezier(.22,1,.36,1) 1.2s both;
+}
+@keyframes slideInUp {
+  from { opacity: 0; transform: translateY(100%); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Scroll progress bar ── */
+#scroll-progress {
+  background: linear-gradient(90deg, var(--sage) 0%, var(--gold) 100%);
+}
+
+/* ── Reduced motion overrides ── */
+@media (prefers-reduced-motion: reduce) {
+  .service-card,
+  .pricing-card,
+  .testimonial-card,
+  .condition-pill,
+  .why__item,
+  .btn,
+  .nav__links a::after,
+  .book-sticky-desktop,
+  .book-sticky-mobile {
+    transition: none !important;
+    animation: none !important;
+  }
+  #scroll-progress { display: none; }
+}

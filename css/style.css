@@ -857,13 +857,13 @@ details[open] .faq__question        { color: var(--sage-dark); }
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* ── Mobile sticky bar slide up ── */
-.book-sticky-mobile {
-  animation: slideInUp 0.4s cubic-bezier(.22,1,.36,1) 1.2s both;
-}
+/* ── Mobile sticky bar slide up animation only — no layout override ── */
 @keyframes slideInUp {
   from { opacity: 0; transform: translateY(100%); }
   to   { opacity: 1; transform: translateY(0); }
+}
+.book-sticky-mobile:not(.hidden) {
+  animation: slideInUp 0.4s cubic-bezier(.22,1,.36,1) 1.2s both;
 }
 
 /* ── Scroll progress bar ── */

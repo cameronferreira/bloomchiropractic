@@ -319,8 +319,7 @@ if ('IntersectionObserver' in window) {
       else visibleSet.delete(entry.target);
     });
     const hide = visibleSet.size > 0;
-    if (mobileBar)  mobileBar.classList.toggle('hidden', hide);
-    if (desktopBtn) desktopBtn.classList.toggle('hidden', hide);
+    if (mobileBar) mobileBar.classList.toggle('hidden', hide);
   }, { threshold: 0.15 });
 
   watchTargets.forEach(el => bookObserver.observe(el));

@@ -316,7 +316,7 @@ if ('IntersectionObserver' in window) {
     const hide = visibleCount > 0;
     if (mobileBar)  mobileBar.classList.toggle('hidden', hide);
     if (desktopBtn) desktopBtn.classList.toggle('hidden', hide);
-  }, { threshold: 0.5 });
+  }, { threshold: 0.2 });
 
   watchTargets.forEach(el => bookObserver.observe(el));
 }

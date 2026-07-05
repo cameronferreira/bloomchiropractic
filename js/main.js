@@ -301,22 +301,28 @@ if ('IntersectionObserver' in window) {
   const mobileBar  = document.querySelector('.book-sticky-mobile');
   const desktopBtn = document.querySelector('.book-sticky-desktop');
 
+  // Watch primary book buttons (excluding footer) and the booking section itself
+  // Use querySelectorAll then filter out the footer button
+  const allBookBtns = [...document.querySelectorAll('a.btn--primary[href="#book"]')]
+    .filter(el => !el.closest('.footer'));
+
   const watchTargets = [
-    ...document.querySelectorAll('.btn--primary[href="#book"], a.btn--primary'),
+    ...allBookBtns,
     document.querySelector('#book')
   ].filter(Boolean);
 
-  let visibleCount = 0;
+  // Use a Set instead of a counter — immune to multi-entry desync bugs
+  const visibleSet = new Set();
 
   const bookObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) visibleCount++;
-      else visibleCount = Math.max(0, visibleCount - 1);
+      if (entry.isIntersecting) visibleSet.add(entry.target);
+      else visibleSet.delete(entry.target);
     });
-    const hide = visibleCount > 0;
+    const hide = visibleSet.size > 0;
     if (mobileBar)  mobileBar.classList.toggle('hidden', hide);
     if (desktopBtn) desktopBtn.classList.toggle('hidden', hide);
-  }, { threshold: 0.2 });
+  }, { threshold: 0.15 });
 
   watchTargets.forEach(el => bookObserver.observe(el));
 }

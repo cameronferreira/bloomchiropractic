@@ -301,10 +301,9 @@ if ('IntersectionObserver' in window) {
   const mobileBar  = document.querySelector('.book-sticky-mobile');
   const desktopBtn = document.querySelector('.book-sticky-desktop');
 
-  // Watch primary book buttons (excluding footer) and the booking section itself
-  // Use querySelectorAll then filter out the footer button
-  const allBookBtns = [...document.querySelectorAll('a.btn--primary[href="#book"]')]
-    .filter(el => !el.closest('.footer'));
+  // Watch ALL buttons linking to #book (excluding footer and sticky itself)
+  const allBookBtns = [...document.querySelectorAll('a[href="#book"]')]
+    .filter(el => !el.closest('.footer') && !el.classList.contains('book-sticky-desktop') && !el.closest('.book-sticky-mobile') && !el.closest('.nav__links'));
 
   const watchTargets = [
     ...allBookBtns,

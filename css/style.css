@@ -177,20 +177,22 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 
 /* ── HERO ── */
 .hero {
-  min-height: 100svh;
+  min-height: min(100svh, 880px);
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
   gap: 64px;
-  padding: calc(var(--nav-h) + 48px) 24px 64px;
+  padding: calc(var(--nav-h) + 48px) 24px 48px;
   max-width: var(--container);
   margin: 0 auto;
   position: relative;
 }
 .hero__bg-motif {
   position: absolute;
-  top: 0; right: 0;
-  width: 55%; height: 100%;
+  top: 0; bottom: 0;
+  /* Starts where the image column begins and bleeds to the window edge */
+  left: calc(50% + 32px);
+  right: min(0px, calc(50% - 50vw));
   background: linear-gradient(135deg, var(--blush) 0%, var(--sage-pale) 100%);
   border-radius: 0 0 0 120px;
   z-index: -1;
@@ -199,7 +201,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .hero__actions    { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 40px; }
 .hero__trust      { display: flex; flex-direction: column; gap: 10px; }
 .hero__trust-item { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--text-muted); font-weight: 500; }
-.hero__image-wrap { display: flex; justify-content: center; align-items: flex-end; position: relative; }
+.hero__image-wrap { display: flex; justify-content: flex-end; align-items: center; position: relative; }
 .hero__image-placeholder,
 .hero__image      { width: 100%; max-width: 420px; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); }
 .hero__image-placeholder svg { width: 100%; height: auto; display: block; }
@@ -590,6 +592,9 @@ details[open] .faq__question        { color: var(--sage-dark); }
   opacity: 1;
   pointer-events: auto;
   transition: background .2s ease, box-shadow .2s ease, opacity .3s ease, transform .3s ease;
+}
+@media (min-width: 901px) {
+  .book-sticky-desktop.in-hero { opacity: 0; pointer-events: none; transform: translateY(8px); }
 }
 .book-sticky-desktop:hover {
   background: var(--sage-dark);

@@ -325,4 +325,12 @@ if ('IntersectionObserver' in window) {
   }, { threshold: 0.15 });
 
   watchTargets.forEach(el => bookObserver.observe(el));
+
+  // Desktop pill stays hidden while the hero's own Book button is on screen
+  const heroBookBtn = document.querySelector('.hero__actions .btn--primary');
+  if (desktopBtn && heroBookBtn) {
+    new IntersectionObserver(([entry]) => {
+      desktopBtn.classList.toggle('in-hero', entry.isIntersecting);
+    }).observe(heroBookBtn);
+  }
 }

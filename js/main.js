@@ -112,7 +112,7 @@ if ('IntersectionObserver' in window && !reducedMotion) {
     }
     .anim-fade-in.visible { opacity: 1; }
 
-    /* Scale up — for pricing cards */
+    /* Scale up — for hero image */
     .anim-scale {
       opacity: 0;
       transform: scale(0.96);
@@ -178,14 +178,14 @@ if ('IntersectionObserver' in window && !reducedMotion) {
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
   // Hero image — scale in
-  animateEl('.hero__media', 'anim-fade-in');
+  animateEl('.hero__image, .hero__image-placeholder', 'anim-scale');
 
   // Hero content — fade up
   animateEl('.hero__eyebrow', 'anim-fade-up');
   animateEl('.hero__heading', 'anim-heading');
   animateEl('.hero__sub',     'anim-fade-up');
   animateEl('.hero__actions', 'anim-fade-up');
-  animateEl('.hero__credentials', 'anim-fade-up');
+  animateEl('.hero__trust',   'anim-fade-up');
 
   // Section headings
   document.querySelectorAll('.section__eyebrow, .section__heading, .section__sub').forEach(el => {

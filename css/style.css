@@ -1,6 +1,14 @@
 /* ============================================================
    BLOOM CHIROPRACTIC — style.css
-   Alignment rule: page-level headings CENTER, card headings LEFT, body copy LEFT
+   Alignment rules (mobile):
+   1. Centre only short display text: eyebrows, section headings, intros
+      of 2 lines or fewer, one-line notes/links, pill clusters, copyright.
+   2. Left-align anything 3+ lines, and everything inside cards, lists,
+      tables, accordions, contact details and footer columns.
+   3. One alignment per group (heading + intro + CTA share an axis).
+   4. Primary buttons go full width, so they need no alignment.
+   5. Icons align with the text they belong to.
+   6. Set alignment on the container or shared class, not per element.
    ============================================================ */
 
 /* ── TOKENS ── */
@@ -65,7 +73,6 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   text-transform: uppercase;
   color: var(--gold);
   margin-bottom: 12px;
-  text-align: left;
 }
 .hero__heading {
   font-family: var(--font-display);
@@ -74,7 +81,6 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   line-height: 1.1;
   color: var(--forest);
   margin-bottom: 24px;
-  text-align: left;
 }
 .hero__heading em { font-style: italic; color: var(--sage); }
 
@@ -85,7 +91,6 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   line-height: 1.2;
   color: var(--forest);
   margin-bottom: 16px;
-  text-align: left;
   text-wrap: balance;
 }
 .section__heading em { font-style: italic; color: var(--sage-dark); }
@@ -97,20 +102,17 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   max-width: 480px;
   line-height: 1.65;
   margin-bottom: 36px;
-  text-align: left;          /* LEFT: multi-sentence body copy */
 }
 .section__sub {
   font-size: 17px;
   color: var(--text-muted);
   max-width: 520px;
-  text-align: left;          /* LEFT: body copy under section heading */
 }
 
 /* ── SECTION HEADER WRAPPER ── */
 .section__header {
   max-width: 640px;
   margin: 0 auto 64px;
-  text-align: left;
 }
 
 /* ── BUTTONS — center label inside pill, never flows as reading text ── */
@@ -224,16 +226,13 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   color: var(--sage-dark);
   margin-bottom: 20px;
   line-height: 1.5;
-  text-align: left;          /* LEFT: body copy */
 }
-.about__content .section__eyebrow,
-.about__content .section__heading { text-align: left; }
-.about__content p  { color: var(--text-muted); margin-bottom: 16px; text-align: left; }
+.about__content p  { color: var(--text-muted); margin-bottom: 16px; }
 .about__values     { display: flex; flex-direction: column; gap: 16px; margin: 32px 0; }
 .about__value      { display: flex; gap: 16px; align-items: flex-start; }
 .about__value-icon { font-size: 24px; margin-top: 2px; flex-shrink: 0; }
-.about__value strong { display: block; margin-bottom: 2px; color: var(--forest); text-align: left; }
-.about__value p    { font-size: 14px; margin: 0; color: var(--text-muted); text-align: left; }
+.about__value strong { display: block; margin-bottom: 2px; color: var(--forest); }
+.about__value p    { font-size: 14px; margin: 0; color: var(--text-muted); }
 
 /* ── SERVICES ── */
 .services__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -256,9 +255,8 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   font-weight: 600;
   color: var(--forest);
   margin-bottom: 12px;
-  text-align: left;          /* LEFT: card heading above left body text */
 }
-.service-card p { font-size: 15px; color: var(--text-muted); line-height: 1.65; text-align: left; }
+.service-card p { font-size: 15px; color: var(--text-muted); line-height: 1.65; }
 
 /* ── CONDITIONS ── */
 .conditions__grid {
@@ -281,7 +279,6 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 }
 .condition-pill:hover { background: var(--sage-dark); border-color: var(--sage-dark); color: #fff; }
 .conditions__note {
-  text-align: left;
   font-size: 15px;
   color: var(--text);
 }
@@ -306,9 +303,8 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   color: var(--forest);
   margin-bottom: 10px;
   line-height: 1.3;
-  text-align: left;          /* LEFT: card heading above left body text */
 }
-.why__item p { font-size: 14px; color: var(--text-muted); line-height: 1.6; text-align: left; }
+.why__item p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
 
 /* ── PRICING ── */
 .pricing__cards {
@@ -346,7 +342,6 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   font-weight: 600;
   color: var(--forest);
   margin-bottom: 16px;
-  text-align: left;          /* LEFT: card heading above left list items */
 }
 .pricing-card__tagline {
   font-size: 13px;
@@ -354,7 +349,6 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   line-height: 1.5;
   margin-bottom: 20px;
   min-height: 38px;
-  text-align: left;          /* LEFT: body copy */
 }
 .pricing-card__price    { display: flex; align-items: flex-start; gap: 4px; margin-bottom: 4px; }
 .pricing-card__currency { font-size: 22px; font-weight: 600; color: var(--sage); margin-top: 8px; }
@@ -366,10 +360,8 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   margin-bottom: 28px;
   text-transform: uppercase;
   letter-spacing: .04em;
-  text-align: left;          /* LEFT: sits under price, left context */
 }
 .pricing__hint {
-  text-align: left;
   font-size: 13px;
   color: var(--text-muted);
   font-style: italic;
@@ -385,7 +377,6 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   align-items: center;
   gap: 8px;
   color: var(--text);
-  text-align: left;
 }
 .pricing-card__includes li::before {
   content: '';
@@ -408,8 +399,8 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 }
 .pricing__medical-aid-icon { flex-shrink: 0; width: 32px; height: 32px; }
 .pricing__medical-aid-icon svg { width: 32px; height: 32px; }
-.pricing__medical-aid strong { display: block; margin-bottom: 4px; color: var(--forest); text-align: left; }
-.pricing__medical-aid p      { font-size: 14px; color: var(--text-muted); text-align: left; } /* LEFT: 66-word paragraph */
+.pricing__medical-aid strong { display: block; margin-bottom: 4px; color: var(--forest); }
+.pricing__medical-aid p      { font-size: 14px; color: var(--text-muted); }
 
 /* ── TESTIMONIALS ── */
 .testimonials__grid {
@@ -447,12 +438,10 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   line-height: 1.7;
   margin-top: 28px;
   margin-bottom: 20px;
-  text-align: left;          /* LEFT: quote body copy */
 }
 .testimonial-card footer        { display: flex; flex-direction: column; gap: 2px; }
-.testimonial-card footer strong { font-size: 14px; font-weight: 600; color: var(--forest); text-align: left; }
-.testimonial-card footer span   { font-size: 12px; color: var(--text-muted); text-align: left; }
-.testimonials__google           { text-align: left; }
+.testimonial-card footer strong { font-size: 14px; font-weight: 600; color: var(--forest); }
+.testimonial-card footer span   { font-size: 12px; color: var(--text-muted); }
 .testimonials__google a { font-size: 14px; color: var(--sage-dark); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
 
 /* ── FAQ ── */
@@ -473,7 +462,6 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   cursor: pointer;
   list-style: none;
   transition: color .15s;
-  text-align: left;          /* LEFT: accordion row label, not a page heading */
 }
 .faq__question::-webkit-details-marker { display: none; }
 .faq__question::after {
@@ -488,7 +476,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 details[open] .faq__question::after { transform: rotate(45deg); }
 details[open] .faq__question        { color: var(--sage-dark); }
 .faq__answer   { padding: 0 0 24px; }
-.faq__answer p { font-size: 15px; color: var(--text); line-height: 1.7; text-align: left; }
+.faq__answer p { font-size: 15px; color: var(--text); line-height: 1.7; }
 
 /* ── BOOKING ── */
 .booking { background: var(--warm-white); padding-bottom: 48px; }
@@ -505,8 +493,6 @@ details[open] .faq__question        { color: var(--sage-dark); }
 /* ── CONTACT ── */
 .contact { padding-top: 48px; }
 .contact__grid    { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
-.contact__info .section__eyebrow,
-.contact__info .section__heading { text-align: left; }
 .contact__details { display: flex; flex-direction: column; gap: 24px; margin-bottom: 36px; }
 .contact__detail  { display: flex; gap: 16px; align-items: flex-start; }
 .contact__detail svg { flex-shrink: 0; margin-top: 2px; }
@@ -518,9 +504,8 @@ details[open] .faq__question        { color: var(--sage-dark); }
   text-transform: uppercase;
   color: var(--sage-dark);
   margin-bottom: 4px;
-  text-align: left;
 }
-.contact__detail p  { font-size: 15px; color: var(--text); line-height: 1.5; text-align: left; }
+.contact__detail p  { font-size: 15px; color: var(--text); line-height: 1.5; }
 .contact__detail em { font-size: 13px; color: var(--text-muted); font-style: normal; }
 .contact__detail a  { color: var(--text); transition: color .15s; }
 .contact__detail a:hover { color: var(--sage); }
@@ -530,10 +515,9 @@ details[open] .faq__question        { color: var(--sage-dark); }
   font-weight: 600;
   color: var(--forest);
   margin-bottom: 16px;
-  text-align: left;          /* LEFT: component heading above left table */
 }
 .hours-table              { width: 100%; border-collapse: collapse; }
-.hours-table td           { padding: 8px 0; font-size: 14px; border-bottom: 1px solid var(--border); color: var(--text); text-align: left; }
+.hours-table td           { padding: 8px 0; font-size: 14px; border-bottom: 1px solid var(--border); color: var(--text); }
 .hours-table td:first-child { font-weight: 500; width: 50%; }
 .hours-table td:last-child  { color: var(--text-muted); }
 .contact__map    { border-radius: var(--radius-lg); overflow: hidden; min-height: 500px; box-shadow: var(--shadow); }
@@ -562,7 +546,7 @@ details[open] .faq__question        { color: var(--sage-dark); }
 }
 .footer__brand .nav__logo-bloom { color: #fff; }
 .footer__brand .nav__logo-chiro { color: rgba(255,255,255,.45); }
-.footer__brand p { margin-top: 16px; font-size: 13px; line-height: 1.7; color: rgba(255,255,255,.6); text-align: left; }
+.footer__brand p { margin-top: 16px; font-size: 13px; line-height: 1.7; color: rgba(255,255,255,.6); }
 .footer__links h4,
 .footer__contact h4 {
   font-size: 12px;
@@ -571,12 +555,11 @@ details[open] .faq__question        { color: var(--sage-dark); }
   text-transform: uppercase;
   color: rgba(255,255,255,.4);
   margin-bottom: 16px;
-  text-align: left;          /* LEFT: column heading above left links */
 }
 .footer__links ul   { display: flex; flex-direction: column; gap: 10px; }
-.footer__links a    { font-size: 14px; color: rgba(255,255,255,.65); transition: color .15s; text-align: left; }
+.footer__links a    { font-size: 14px; color: rgba(255,255,255,.65); transition: color .15s; }
 .footer__links a:hover { color: #fff; }
-.footer__contact p  { font-size: 14px; margin-bottom: 8px; color: rgba(255,255,255,.65); text-align: left; }
+.footer__contact p  { font-size: 14px; margin-bottom: 8px; color: rgba(255,255,255,.65); }
 .footer__contact a  { color: rgba(255,255,255,.65); transition: color .15s; }
 .footer__contact a:hover { color: #fff; }
 .footer__contact .btn--primary { background: var(--sage); border-color: var(--sage); margin-top: 16px; }
@@ -668,7 +651,6 @@ details[open] .faq__question        { color: var(--sage-dark); }
   .hero__image-wrap   { justify-content: center; }
   .hero__image-placeholder,
   .hero__image        { max-width: 300px; }
-  .hero__actions      { justify-content: center; }
   .about__grid        { grid-template-columns: 1fr; gap: 48px; }
   .about__image-wrap  { order: 2; }
   .about__content     { order: 1; }
@@ -691,7 +673,6 @@ details[open] .faq__question        { color: var(--sage-dark); }
 
 /* Mobile: hide pill, show bottom bar */
 @media (max-width: 600px) {
-  .about__content .btn { display: block; text-align: center; }
   .book-sticky-desktop { display: none; }
   .book-sticky-mobile  { display: block; }
   body { padding-bottom: 80px; }
@@ -712,22 +693,24 @@ details[open] .faq__question        { color: var(--sage-dark); }
   }
   .nav__links.open  { display: flex; }
   .nav__toggle      { display: flex; }
-  .hero__eyebrow,
-  .section__eyebrow { text-align: center; }
-  .hero__heading    { font-size: clamp(36px, 9vw, 52px); text-align: center; }
-  .section__heading { font-size: clamp(26px, 7vw, 36px); text-align: center; }
-  .section__sub     { text-align: center; }
-  .conditions__note { text-align: center; }
-  .pricing__hint    { text-align: center; }
+  .hero__heading    { font-size: clamp(36px, 9vw, 52px); }
+  .section__heading { font-size: clamp(26px, 7vw, 36px); }
+  .section__eyebrow,
+  .section__heading,
+  .section__sub,
+  .conditions__note,
+  .pricing__hint,
   .testimonials__google { text-align: center; }
-  .about__content .section__eyebrow,
   .about__content .section__heading,
-  .contact__info .section__eyebrow,
-  .contact__info .section__heading { text-align: center; }
+  .contact__info .section__heading { margin-bottom: 32px; }
+  .hero__actions .btn,
+  .about__content .btn,
+  .pricing-card .btn,
+  .footer .btn      { display: flex; justify-content: center; width: 100%; }
   .services__grid   { grid-template-columns: 1fr; }
   .why__grid        { grid-template-columns: 1fr; }
   .pricing-card     { padding: 28px 24px; }
-  .pricing__medical-aid { flex-direction: column; }
+  .pricing__medical-aid { flex-direction: column; align-items: flex-start; }
   .footer__inner    { grid-template-columns: 1fr; }
   .booking__placeholder { padding: 40px 24px; }
 }

@@ -178,7 +178,7 @@ if ('IntersectionObserver' in window && !reducedMotion) {
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
   // Hero image — scale in
-  animateEl('.hero__image, .hero__image-placeholder', 'anim-scale');
+  animateEl('.hero__frame', 'anim-scale');
 
   // Hero content — fade up
   animateEl('.hero__eyebrow', 'anim-fade-up');

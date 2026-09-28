@@ -187,25 +187,27 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   margin: 0 auto;
   position: relative;
 }
-.hero__bg-motif {
-  position: absolute;
-  top: 0; bottom: 0;
-  /* Starts where the image column begins and bleeds to the window edge */
-  left: calc(50% + 32px);
-  right: min(0px, calc(50% - 50vw));
-  background: linear-gradient(135deg, var(--blush) 0%, var(--sage-pale) 100%);
-  border-radius: 0 0 0 120px;
-  z-index: -1;
-  opacity: .6;
-}
 .hero__actions    { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 40px; }
 .hero__trust      { display: flex; flex-direction: column; gap: 10px; }
 .hero__trust-item { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--text-muted); font-weight: 500; }
 .hero__image-wrap { display: flex; justify-content: flex-end; align-items: center; position: relative; }
-.hero__image-placeholder,
-.hero__image      { width: 100%; max-width: 420px; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); }
-.hero__image-placeholder svg { width: 100%; height: auto; display: block; }
-.hero__image      { height: auto; object-fit: cover; object-position: top center; }
+.hero__frame      { width: 100%; max-width: 420px; }
+.hero__image      { display: block; width: 100%; height: auto; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); object-fit: cover; object-position: top center; }
+
+/* Desktop: arched photo inside a thin gold frame, set 14px off the photo.
+   Radii are % so the arch stays a true semicircle at any width
+   (vertical % = half the width / height of the element). */
+@media (min-width: 901px) {
+  .hero__frame {
+    padding: 14px;
+    border: 1.5px solid var(--gold);
+    border-radius: 50% 50% 22px 22px / 35% 35% 22px 22px;
+  }
+  .hero__image {
+    border-radius: 50% 50% 12px 12px / 34.3% 34.3% 12px 12px;
+    box-shadow: none;
+  }
+}
 
 /* ── DIVIDER ── */
 .divider-motif     { padding: 16px 0; overflow: hidden; }
@@ -666,10 +668,8 @@ details[open] .faq__question        { color: var(--sage-dark); }
     padding: calc(var(--nav-h) + 40px) 24px 48px;
     gap: 40px;
   }
-  .hero__bg-motif     { display: none; }
   .hero__image-wrap   { justify-content: center; }
-  .hero__image-placeholder,
-  .hero__image        { max-width: 300px; }
+  .hero__frame        { max-width: 300px; }
   .about__grid        { grid-template-columns: 1fr; gap: 48px; }
   .about__image-wrap  { order: 2; }
   .about__content     { order: 1; }
@@ -713,7 +713,7 @@ details[open] .faq__question        { color: var(--sage-dark); }
   .nav__links.open  { display: flex; }
   .nav__toggle      { display: flex; }
   .hero__heading    { font-size: clamp(36px, 9vw, 52px); }
-  .hero__image      { max-width: none; }
+  .hero__frame      { max-width: none; }
   .section__heading { font-size: clamp(26px, 7vw, 36px); }
   .section__eyebrow,
   .section__heading,

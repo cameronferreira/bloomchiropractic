@@ -32,6 +32,7 @@
   --shadow:     0 4px 20px rgba(30,45,31,.08);
   --shadow-lg:  0 12px 40px rgba(30,45,31,.12);
   --nav-h:      72px;
+  --whatsapp:   #25D366;
   --container:  1160px;
   --font-display: 'Playfair Display', Georgia, serif;
   --font-body:    'Inter', system-ui, sans-serif;
@@ -611,7 +612,9 @@ details[open] .faq__question        { color: var(--sage-dark); }
   border-top: 1px solid var(--border);
   transition: transform .3s ease;
 }
+.book-sticky-mobile { gap: 10px; }
 .book-sticky-mobile__btn {
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -630,6 +633,50 @@ details[open] .faq__question        { color: var(--sage-dark); }
 .book-sticky-mobile__btn:hover { background: var(--sage-dark); }
 .book-sticky-mobile.hidden {
   transform: translateY(100%);
+}
+.book-sticky-mobile__whatsapp {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--whatsapp);
+  color: #fff;
+}
+
+/* ── WHATSAPP ── */
+.whatsapp-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--sage-dark);
+  font-weight: 600;
+}
+.whatsapp-link svg { color: var(--whatsapp); flex-shrink: 0; }
+.whatsapp-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+.footer__contact .whatsapp-link { color: rgba(255,255,255,.85); }
+.booking__whatsapp { margin-top: 24px; text-align: center; font-size: 15px; color: var(--text-muted); }
+.whatsapp-sticky-desktop {
+  position: fixed;
+  bottom: 96px;
+  right: 32px;
+  z-index: 200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--whatsapp);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(30,45,31,.25);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.whatsapp-sticky-desktop:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(30,45,31,.3);
 }
 
 /* ── REDUCED MOTION ── */
@@ -668,13 +715,14 @@ details[open] .faq__question        { color: var(--sage-dark); }
 /* Desktop: show pill, hide mobile bar */
 @media (min-width: 601px) {
   .book-sticky-desktop { display: flex; }
+  .whatsapp-sticky-desktop { display: flex; }
   .book-sticky-mobile  { display: none; }
 }
 
 /* Mobile: hide pill, show bottom bar */
 @media (max-width: 600px) {
   .book-sticky-desktop { display: none; }
-  .book-sticky-mobile  { display: block; }
+  .book-sticky-mobile  { display: flex; }
   body { padding-bottom: 80px; }
   :root { --nav-h: 64px; }
   .section { padding: 56px 0; }

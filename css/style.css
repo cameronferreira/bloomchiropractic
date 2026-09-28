@@ -413,7 +413,6 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   grid-template-columns: 1fr 1.2fr 1fr;
   gap: 24px;
   align-items: start;
-  margin-bottom: 32px;
 }
 .testimonial-card {
   background: var(--card-bg);
@@ -447,7 +446,6 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .testimonial-card footer        { display: flex; flex-direction: column; gap: 2px; }
 .testimonial-card footer strong { font-size: 14px; font-weight: 600; color: var(--forest); }
 .testimonial-card footer span   { font-size: 12px; color: var(--text-muted); }
-.testimonials__google a { font-size: 14px; color: var(--sage-dark); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
 
 /* ── FAQ ── */
 .faq__inner { max-width: 760px; }
@@ -719,8 +717,7 @@ details[open] .faq__question        { color: var(--sage-dark); }
   .section__heading,
   .section__sub,
   .conditions__note,
-  .pricing__hint,
-  .testimonials__google { text-align: center; }
+  .pricing__hint { text-align: center; }
   .about__content .section__heading,
   .contact__info .section__heading { margin-bottom: 32px; }
   .hero__actions .btn,

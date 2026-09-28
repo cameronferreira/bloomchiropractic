@@ -58,7 +58,9 @@ document.addEventListener('click', (e) => {
 /* ── Smooth scroll ── */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', (e) => {
-    const target = document.querySelector(anchor.getAttribute('href'));
+    // Use .hash, not getAttribute('href'): the Bookem widget rewrites clicked
+    // link hrefs to absolute URLs, which breaks querySelector.
+    const target = anchor.hash && document.querySelector(anchor.hash);
     if (!target) return;
     e.preventDefault();
     const navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h'));
@@ -82,7 +84,7 @@ window.addEventListener('scroll', () => {
     if (scrollY >= top && scrollY < bottom) {
       const id = section.getAttribute('id');
       navAnchors.forEach(a => {
-        a.classList.toggle('active', a.getAttribute('href') === `#${id}`);
+        a.classList.toggle('active', a.hash === `#${id}`);
       });
     }
   });

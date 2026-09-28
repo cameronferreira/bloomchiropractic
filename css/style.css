@@ -203,7 +203,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .hero__image-placeholder,
 .hero__image      { width: 100%; max-width: 420px; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); }
 .hero__image-placeholder svg { width: 100%; height: auto; display: block; }
-.hero__image      { object-fit: cover; object-position: top center; }
+.hero__image      { height: auto; object-fit: cover; object-position: top center; }
 
 /* ── DIVIDER ── */
 .divider-motif     { padding: 16px 0; overflow: hidden; }

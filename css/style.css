@@ -708,6 +708,7 @@ details[open] .faq__question        { color: var(--sage-dark); }
   .nav__links.open  { display: flex; }
   .nav__toggle      { display: flex; }
   .hero__heading    { font-size: clamp(36px, 9vw, 52px); }
+  .hero__image      { max-width: none; }
   .section__heading { font-size: clamp(26px, 7vw, 36px); }
   .section__eyebrow,
   .section__heading,

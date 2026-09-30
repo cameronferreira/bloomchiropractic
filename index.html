@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Consent Mode defaults: analytics and ad cookies stay off until the visitor accepts -->
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  (function(){var c=null;try{c=localStorage.getItem('bloom-consent');}catch(e){}var s=c==='granted'?'granted':'denied';
+  gtag('consent','default',{analytics_storage:s,ad_storage:s,ad_user_data:s,ad_personalization:s,wait_for_update:500});})();
+  </script>
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -559,6 +566,7 @@
       <div class="container">
         <p>© <span id="year"></span> Bloom Chiropractic. All rights reserved.</p>
         <p class="footer__disclaimer">Chiropractic services provided by Dr. Melissa Crestani, registered with the Allied Health Professions Council of South Africa (AHPCSA).</p>
+        <p class="footer__legal"><a href="privacy.html">Privacy &amp; Cookie Policy</a> · <button type="button" class="footer__link-btn" data-cookie-settings>Cookie settings</button></p>
       </div>
     </div>
   </footer>
@@ -577,6 +585,15 @@
     </a>
   </div>
 
+  <div class="cookie-banner" id="cookieBanner" role="region" aria-label="Cookie consent" hidden>
+    <p class="cookie-banner__text">We use analytics cookies to understand how our site is used. <a href="privacy.html">Privacy &amp; Cookie Policy</a></p>
+    <div class="cookie-banner__actions">
+      <button type="button" class="cookie-banner__btn cookie-banner__btn--ghost" data-consent="decline">Decline</button>
+      <button type="button" class="cookie-banner__btn" data-consent="accept">Accept</button>
+    </div>
+  </div>
+
   <script src="js/main.js"></script>
+  <script src="js/consent.js"></script>
 </body>
 </html>

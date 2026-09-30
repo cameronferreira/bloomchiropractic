@@ -574,6 +574,69 @@ details[open] .faq__question        { color: var(--sage-dark); }
 .footer__bottom p { font-size: 12px; color: rgba(255,255,255,.35); }
 .footer__disclaimer { font-size: 11px !important; color: rgba(255,255,255,.45) !important; margin-top: 4px; }
 
+.footer__legal { margin-top: 10px; }
+.footer__legal a,
+.footer__link-btn { color: rgba(255,255,255,.55); text-decoration: underline; text-underline-offset: 3px; }
+.footer__link-btn { background: none; border: 0; padding: 0; font: inherit; cursor: pointer; }
+.footer__legal a:hover,
+.footer__link-btn:hover { color: #fff; }
+
+/* ── COOKIE BANNER — small card, bottom-left, clear of the Book Now pill ── */
+.cookie-banner {
+  position: fixed;
+  left: 24px;
+  bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+  z-index: 300;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 18px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text);
+}
+.cookie-banner[hidden] { display: none; }
+.cookie-banner__text a { color: var(--sage-dark); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.cookie-banner__actions { display: flex; justify-content: flex-end; gap: 8px; }
+.cookie-banner__btn {
+  font: inherit;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 50px;
+  border: 1.5px solid var(--sage);
+  background: var(--sage);
+  color: #fff;
+  cursor: pointer;
+}
+.cookie-banner__btn:hover { background: var(--sage-dark); border-color: var(--sage-dark); }
+.cookie-banner__btn--ghost { background: transparent; color: var(--sage-dark); }
+.cookie-banner__btn--ghost:hover { background: var(--blush); color: var(--sage-dark); }
+
+/* ── PRIVACY PAGE ── */
+.legal-header { border-bottom: 1px solid var(--border); background: var(--warm-white); }
+.legal-header__inner { display: flex; align-items: center; justify-content: space-between; height: var(--nav-h); }
+.legal-header__back { font-size: 14px; font-weight: 600; color: var(--sage-dark); }
+.legal { max-width: 760px; padding-block: 56px 80px; }
+.legal__title { font-family: var(--font-display); font-size: clamp(32px, 5vw, 44px); font-weight: 600; color: var(--forest); line-height: 1.15; margin-bottom: 8px; }
+.legal__updated { font-size: 13px; color: var(--text-muted); margin-bottom: 32px; }
+.legal h2 { font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--forest); margin: 40px 0 12px; }
+.legal p, .legal li { font-size: 16px; line-height: 1.7; color: var(--text); }
+.legal p { margin-bottom: 14px; }
+.legal ul { list-style: disc; padding-left: 20px; display: grid; gap: 10px; margin-bottom: 14px; }
+.legal a, .legal__link-btn { color: var(--sage-dark); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.legal__link-btn { background: none; border: 0; padding: 0; font: inherit; cursor: pointer; }
+.legal__table-wrap { overflow-x: auto; margin: 8px 0 18px; }
+.legal__table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.legal__table th, .legal__table td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--border); }
+.legal__table th { font-weight: 600; color: var(--forest); background: var(--sage-pale); }
+.legal__table code { font-size: 13px; }
+.footer--legal { padding-top: 0; }
+
 /* ── DESKTOP STICKY BOOK NOW (bottom-right floating pill) ── */
 .book-sticky-desktop {
   position: fixed;
@@ -694,6 +757,12 @@ details[open] .faq__question        { color: var(--sage-dark); }
 
 /* Mobile: hide pill, show bottom bar */
 @media (max-width: 600px) {
+  .cookie-banner {
+    left: 12px;
+    right: 12px;
+    max-width: none;
+    bottom: calc(84px + env(safe-area-inset-bottom, 0px)); /* above the sticky Book bar */
+  }
   .book-sticky-desktop { display: none; }
   .book-sticky-mobile  { display: block; }
   body { padding-bottom: 80px; }

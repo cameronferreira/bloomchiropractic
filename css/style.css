@@ -581,9 +581,9 @@ details[open] .faq__question        { color: var(--sage-dark); }
 .footer__legal a:hover,
 .footer__link-btn:hover { color: #fff; }
 
-/* ── COOKIE CONSENT — centred dialog over a dimmed page until the visitor
-   chooses. The --inline variant (privacy page) is a corner card instead,
-   so the policy it links to stays readable. ── */
+/* ── COOKIE CONSENT — the site uses the --inline variant: a small card,
+   bottom-left, clear of the Book Now pill. The base class is a centred
+   dialog over a dimmed page, kept for an opt-in setup. ── */
 .cookie-consent {
   position: fixed;
   inset: 0;
@@ -789,7 +789,7 @@ details[open] .faq__question        { color: var(--sage-dark); }
 @media (max-width: 600px) {
   .cookie-consent { padding: 16px; }
   .cookie-banner { padding: 24px 20px 20px; }
-  .cookie-consent--inline { inset: auto 12px calc(12px + env(safe-area-inset-bottom, 0px)) 12px; }
+  .cookie-consent--inline { inset: auto 12px calc(84px + env(safe-area-inset-bottom, 0px)) 12px; } /* above the sticky Book bar */
   .cookie-consent--inline .cookie-banner { max-width: none; }
   .book-sticky-desktop { display: none; }
   .book-sticky-mobile  { display: block; }

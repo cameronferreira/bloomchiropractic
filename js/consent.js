@@ -1,10 +1,10 @@
 /* ============================================================
    BLOOM CHIROPRACTIC — consent.js
-   Cookie consent (opt-in, Google Consent Mode v2).
+   Cookie consent (opt-out, Google Consent Mode v2).
 
    Defaults are set inline in <head>, before Google Tag Manager
-   loads: denied until the visitor chooses, or their earlier choice.
-   This file asks for the choice and tells GTM about it:
+   loads: granted unless the visitor has declined. This file shows
+   the notice and tells GTM about the choice:
      1. gtag('consent', 'update', ...)       read by Google tags'
                                              built-in consent checks
      2. dataLayer event 'cookie_consent_update'  for GTM triggers,

@@ -223,7 +223,11 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .about__image-wrap       { position: relative; }
 .about__image-placeholder { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); }
 .about__image-placeholder svg { width: 100%; height: auto; display: block; }
-.about__image { display: block; width: 100%; height: auto; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); background: var(--card-bg); }
+/* The illustration has a solid white background; multiply blends the
+   white into the section background. The wrap's background gives the
+   blend a backdrop inside the stacking context its animation creates. */
+.about__image-wrap { background: var(--warm-white); }
+.about__image { display: block; width: 100%; height: auto; mix-blend-mode: multiply; }
 .about__lead {
   font-family: var(--font-display);
   font-size: 20px;
@@ -836,11 +840,7 @@ details[open] .faq__question        { color: var(--sage-dark); }
               border-color 0.2s ease;
 }
 
-/* ── About image wrap overflow hidden for scale effect ── */
-.about__image-wrap {
-  overflow: hidden;
-  border-radius: var(--radius-lg);
-}
+
 
 /* ── Book sticky desktop — slide in on load ── */
 @keyframes slideInRight {

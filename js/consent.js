@@ -1,8 +1,9 @@
 /* ============================================================
    BLOOM CHIROPRACTIC — consent.js
-   Cookie banner. Consent Mode defaults are set inline in <head>,
-   before Google Tag Manager loads; this file shows the banner,
-   records the visitor's choice and tells Google tags about it.
+   Cookie notice (opt-out). Consent Mode defaults are set inline in
+   <head>, before Google Tag Manager loads: granted unless the visitor
+   has declined. This file shows the notice, records the choice and
+   tells Google tags about it.
    ============================================================ */
 
 (function () {
@@ -23,6 +24,20 @@
     });
   }
 
+  // Declining after analytics cookies exist: remove them as well
+  function clearAnalyticsCookies() {
+    var parts = location.hostname.split('.');
+    var domains = [''];
+    for (var i = 0; i < parts.length - 1; i++) domains.push('; domain=.' + parts.slice(i).join('.'));
+    document.cookie.split(';').forEach(function (c) {
+      var name = c.split('=')[0].trim();
+      if (name.indexOf('_ga') !== 0) return;
+      domains.forEach(function (d) {
+        document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/' + d;
+      });
+    });
+  }
+
   var year = document.getElementById('year');
   if (year && !year.textContent) year.textContent = new Date().getFullYear();
 
@@ -32,6 +47,7 @@
   function choose(granted) {
     save(granted ? 'granted' : 'denied');
     update(granted);
+    if (!granted) clearAnalyticsCookies();
     banner.hidden = true;
   }
 

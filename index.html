@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Consent Mode defaults: analytics and ad cookies stay off until the visitor accepts -->
+  <!-- Consent Mode defaults (opt-out): analytics and ad cookies are on unless the visitor has declined -->
   <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  (function(){var c=null;try{c=localStorage.getItem('bloom-consent');}catch(e){}var s=c==='granted'?'granted':'denied';
+  (function(){var c=null;try{c=localStorage.getItem('bloom-consent');}catch(e){}var s=c==='denied'?'denied':'granted';
   gtag('consent','default',{analytics_storage:s,ad_storage:s,ad_user_data:s,ad_personalization:s,wait_for_update:500});})();
   </script>
   <!-- Google Tag Manager -->
@@ -586,10 +586,10 @@
   </div>
 
   <div class="cookie-banner" id="cookieBanner" role="region" aria-label="Cookie consent" hidden>
-    <p class="cookie-banner__text">We use analytics cookies to understand how our site is used. <a href="privacy.html">Privacy &amp; Cookie Policy</a></p>
+    <p class="cookie-banner__text">We use analytics cookies to help improve our site. You can decline at any time. <a href="privacy.html">Privacy &amp; Cookie Policy</a></p>
     <div class="cookie-banner__actions">
       <button type="button" class="cookie-banner__btn cookie-banner__btn--ghost" data-consent="decline">Decline</button>
-      <button type="button" class="cookie-banner__btn" data-consent="accept">Accept</button>
+      <button type="button" class="cookie-banner__btn" data-consent="accept">OK</button>
     </div>
   </div>
 

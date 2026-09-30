@@ -223,7 +223,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .about__image-wrap       { position: relative; }
 .about__image-placeholder { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); }
 .about__image-placeholder svg { width: 100%; height: auto; display: block; }
-.about__image { width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); object-fit: cover; object-position: top; }
+.about__image { display: block; width: 100%; height: auto; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); background: var(--card-bg); }
 .about__lead {
   font-family: var(--font-display);
   font-size: 20px;

@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Consent Mode defaults (opt-out): analytics and ad cookies are on unless the visitor has declined -->
+  <!-- Consent Mode v2 defaults (opt-in): analytics and ad storage are denied until the visitor
+       accepts; a previous choice is restored. Must run before Google Tag Manager loads. -->
   <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  (function(){var c=null;try{c=localStorage.getItem('bloom-consent');}catch(e){}var s=c==='denied'?'denied':'granted';
-  gtag('consent','default',{analytics_storage:s,ad_storage:s,ad_user_data:s,ad_personalization:s,wait_for_update:500});})();
+  (function(){var c=null;try{c=localStorage.getItem('bloom-consent');}catch(e){}var s=c==='granted'?'granted':'denied';
+  gtag('consent','default',{analytics_storage:s,ad_storage:s,ad_user_data:s,ad_personalization:s,wait_for_update:500});
+  gtag('set','ads_data_redaction',true);})();
   </script>
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -60,7 +62,7 @@
     <ul>
       <li><strong>Online bookings.</strong> Bookings are handled by our booking provider, Bookem. When you book, the details you enter (such as your name, contact details and appointment information) are collected by Bookem and shared with us so we can manage your appointment. Where a payment is taken through the booking system, it is processed by Stripe; we never see or store your card details. Bookem's own privacy policy also applies.</li>
       <li><strong>When you contact us.</strong> If you email, call or WhatsApp us, we receive the details you share, such as your name, number, email address and message, and use them only to reply to you and manage your care.</li>
-      <li><strong>Website usage.</strong> We use Google Analytics, through Google Tag Manager, to understand how visitors use the site: for example which pages are visited, the type of device and browser, and approximate location. We look at this information in aggregate and do not use it to identify you. We rely on our legitimate interest in understanding and improving our website for this, and you can opt out at any time (see Cookies below).</li>
+      <li><strong>Website usage (only if you accept cookies).</strong> We use Google Analytics, through Google Tag Manager, to understand how visitors use the site: for example which pages are visited, the type of device and browser, and approximate location. We look at this information in aggregate and do not use it to identify you.</li>
       <li><strong>Technical information.</strong> Like any website, our hosting provider (GitHub Pages) and font provider (Google Fonts) receive your IP address and browser details when your browser loads the site, so that it can be delivered securely.</li>
     </ul>
 
@@ -71,7 +73,7 @@
     <p>We use personal information to book and manage appointments, respond to your questions, provide your treatment, improve this website and meet our legal obligations. We do not sell your personal information, and we do not use it for marketing without your consent.</p>
 
     <h2>Cookies</h2>
-    <p>Cookies are small files stored in your browser. We use Google Analytics cookies from your first visit to understand how the site is used. If you click <strong>Decline</strong> on our cookie banner, we remove these cookies and Google Analytics stops using cookies for your visits, receiving only basic, cookieless signals.</p>
+    <p>Cookies are small files stored in your browser. We only set analytics cookies if you choose <strong>Sounds good</strong> when we ask. If you decline, or until you choose, Google Analytics runs without cookies and only receives basic, cookieless signals.</p>
     <div class="legal__table-wrap">
       <table class="legal__table">
         <thead>
@@ -79,7 +81,7 @@
         </thead>
         <tbody>
           <tr><td><code>bloom-consent</code></td><td>This website</td><td>Remembers your cookie choice (stored in your browser's local storage)</td><td>Until you clear it</td></tr>
-          <tr><td><code>_ga</code>, <code>_ga_*</code></td><td>Google Analytics</td><td>Distinguishes visitors to produce usage statistics. Removed if you decline.</td><td>Up to 2 years</td></tr>
+          <tr><td><code>_ga</code>, <code>_ga_*</code></td><td>Google Analytics</td><td>Distinguishes visitors to produce usage statistics. Only set if you accept.</td><td>Up to 2 years</td></tr>
           <tr><td>Booking cookies</td><td>Bookem, Stripe</td><td>Make the booking and payment system work and help prevent fraud</td><td>Varies</td></tr>
         </tbody>
       </table>
@@ -112,11 +114,14 @@
     </div>
   </footer>
 
-  <div class="cookie-banner" id="cookieBanner" role="region" aria-label="Cookie consent" hidden>
-    <p class="cookie-banner__text">We use analytics cookies to keep this site in good alignment. <a href="privacy.html">Privacy &amp; Cookie Policy</a></p>
-    <div class="cookie-banner__actions">
-      <button type="button" class="cookie-banner__btn cookie-banner__btn--ghost" data-consent="decline">Decline</button>
-      <button type="button" class="cookie-banner__btn" data-consent="accept">Sounds good</button>
+  <div class="cookie-consent cookie-consent--inline" id="cookieBanner" role="dialog" aria-modal="false" aria-labelledby="cookieTitle" aria-describedby="cookieText" hidden>
+    <div class="cookie-banner" tabindex="-1">
+      <h2 class="cookie-banner__title" id="cookieTitle">A quick adjustment</h2>
+      <p class="cookie-banner__text" id="cookieText">We use analytics cookies to keep this site in good alignment. <a href="privacy.html">Privacy &amp; Cookie Policy</a></p>
+      <div class="cookie-banner__actions">
+        <button type="button" class="cookie-banner__btn cookie-banner__btn--ghost" data-consent="decline">Decline</button>
+        <button type="button" class="cookie-banner__btn" data-consent="accept">Sounds good</button>
+      </div>
     </div>
   </div>
 

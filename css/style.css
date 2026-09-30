@@ -581,32 +581,48 @@ details[open] .faq__question        { color: var(--sage-dark); }
 .footer__legal a:hover,
 .footer__link-btn:hover { color: #fff; }
 
-/* ── COOKIE BANNER — small card, bottom-left, clear of the Book Now pill ── */
-.cookie-banner {
+/* ── COOKIE CONSENT — centred dialog over a dimmed page until the visitor
+   chooses. The --inline variant (privacy page) is a corner card instead,
+   so the policy it links to stays readable. ── */
+.cookie-consent {
   position: fixed;
-  left: 24px;
-  bottom: calc(24px + env(safe-area-inset-bottom, 0px));
-  z-index: 300;
-  max-width: 380px;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(30,45,31,.5);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+}
+.cookie-consent[hidden] { display: none; }
+.cookie-open { overflow: hidden; }
+.cookie-banner {
+  width: 100%;
+  max-width: 420px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 16px 18px;
+  gap: 14px;
+  padding: 28px 28px 24px;
   background: var(--card-bg);
   border: 1px solid var(--border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
-  font-size: 13px;
-  line-height: 1.5;
+  text-align: center;
   color: var(--text);
+  outline: none;
 }
-.cookie-banner[hidden] { display: none; }
-.cookie-banner__text a { color: var(--sage-dark); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
-.cookie-banner__actions { display: flex; justify-content: flex-end; gap: 8px; }
+.cookie-banner__title { font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--forest); }
+.cookie-banner__text { font-size: 15px; line-height: 1.6; }
+.cookie-banner__text a { color: var(--sage-dark); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
+.cookie-banner__actions { display: flex; gap: 10px; margin-top: 4px; }
 .cookie-banner__btn {
+  flex: 1;
   font: inherit;
+  font-size: 15px;
   font-weight: 600;
-  padding: 8px 18px;
+  padding: 12px 18px;
   border-radius: 50px;
   border: 1.5px solid var(--sage);
   background: var(--sage);
@@ -616,6 +632,20 @@ details[open] .faq__question        { color: var(--sage-dark); }
 .cookie-banner__btn:hover { background: var(--sage-dark); border-color: var(--sage-dark); }
 .cookie-banner__btn--ghost { background: transparent; color: var(--sage-dark); }
 .cookie-banner__btn--ghost:hover { background: var(--blush); color: var(--sage-dark); }
+.cookie-banner__btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+.cookie-consent--inline {
+  inset: auto auto calc(24px + env(safe-area-inset-bottom, 0px)) 24px;
+  display: block;
+  padding: 0;
+  background: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+.cookie-consent--inline .cookie-banner { max-width: 380px; padding: 18px; gap: 10px; text-align: left; }
+.cookie-consent--inline .cookie-banner__title { font-size: 17px; }
+.cookie-consent--inline .cookie-banner__text { font-size: 13px; }
+.cookie-consent--inline .cookie-banner__btn { font-size: 13px; padding: 8px 14px; }
 
 /* ── PRIVACY PAGE ── */
 .legal-header { border-bottom: 1px solid var(--border); background: var(--warm-white); }
@@ -757,12 +787,10 @@ details[open] .faq__question        { color: var(--sage-dark); }
 
 /* Mobile: hide pill, show bottom bar */
 @media (max-width: 600px) {
-  .cookie-banner {
-    left: 12px;
-    right: 12px;
-    max-width: none;
-    bottom: calc(84px + env(safe-area-inset-bottom, 0px)); /* above the sticky Book bar */
-  }
+  .cookie-consent { padding: 16px; }
+  .cookie-banner { padding: 24px 20px 20px; }
+  .cookie-consent--inline { inset: auto 12px calc(12px + env(safe-area-inset-bottom, 0px)) 12px; }
+  .cookie-consent--inline .cookie-banner { max-width: none; }
   .book-sticky-desktop { display: none; }
   .book-sticky-mobile  { display: block; }
   body { padding-bottom: 80px; }

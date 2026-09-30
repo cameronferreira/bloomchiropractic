@@ -192,7 +192,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .hero__trust-item { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--text-muted); font-weight: 500; }
 .hero__image-wrap { display: flex; justify-content: flex-end; align-items: center; position: relative; }
 .hero__frame      { width: 100%; max-width: 420px; }
-.hero__image      { display: block; width: 100%; height: auto; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); object-fit: cover; object-position: top center; }
+.hero__image      { display: block; width: 100%; height: auto; aspect-ratio: 840 / 1226; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); object-fit: cover; object-position: 50% 35%; }
 
 /* Desktop: arched photo inside a thin gold frame, set 14px off the photo.
    Radii are % so the arch stays a true semicircle at any width

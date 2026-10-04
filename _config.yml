@@ -1,4 +1,5 @@
 # GitHub Pages (Jekyll) settings
-# Keep helper scripts out of the published site
+# Keep helper scripts and Claude notes out of the published site
 exclude:
   - scripts
+  - CLAUDE.md

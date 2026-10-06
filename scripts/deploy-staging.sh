@@ -45,14 +45,14 @@ for page in build.glob('*.html'):
     before = s
     s, n1 = re.subn(r'[ \t]*<!-- Google Tag Manager -->.*?<!-- End Google Tag Manager -->\n', '', s, flags=re.S)
     s, n2 = re.subn(r'[ \t]*<!-- Google Tag Manager \(noscript\) -->.*?<!-- End Google Tag Manager \(noscript\) -->\n', '', s, flags=re.S)
-    if n1 != 1 or n2 != 1:
-        sys.exit(f'{page.name}: expected one GTM snippet and one noscript block, found {n1} and {n2}; staging not published')
+    if n1 > 1 or n2 > 1 or n1 != n2:
+        sys.exit(f'{page.name}: expected at most one GTM snippet and matching noscript block, found {n1} and {n2}; staging not published')
     s = s.replace('<meta charset="UTF-8" />', '<meta charset="UTF-8" />\n' + head_extra, 1)
     s = re.sub(r'(<body[^>]*>\n)', r'\1' + badge, s, count=1)
     if 'googletagmanager.com/gtm.js' in s or 'noindex' not in s or 'Staging preview' not in s:
         sys.exit(f'{page.name}: staging transform incomplete; staging not published')
     page.write_text(s)
-    print(f'  {page.name}: GTM removed, noindex + badge added, Bookem tracking suppressed')
+    print(f'  {page.name}: ' + ('GTM removed, ' if n1 else 'no GTM, ') + 'noindex + badge added, Bookem tracking suppressed')
 EOF
 
 SOURCE_COMMIT="$(git -C "$ROOT" rev-parse --short HEAD)"

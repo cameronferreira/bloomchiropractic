@@ -10,12 +10,18 @@ Static site for Dr. Melissa Crestani's chiropractic practice, live at https://ww
 - On a Mac that hasn't been used for a while, `git pull` before making changes.
 - Pushing must use the GitHub account **cameronferreira** (`gh auth switch -u cameronferreira`, `gh auth setup-git`). The account rebelcameron cannot push to this repo.
 
+## Copy voice
+
+- Write site copy in the first person plural ("we", "us"). Don't refer to Dr. Melissa in the third person, except in quoted reviews, the footer credential line and the AHPCSA disclaimer.
+- No promises of results; describe what we do and what to expect.
+
 ## Structure
 
 - `index.html` (homepage), `privacy.html` (served at `/privacy`; link to `privacy`, not `privacy.html`)
 - `css/style.css`: design tokens at the top, plus the mobile alignment rules in its header comment
 - `js/main.js` (nav, smooth scroll, animations), `js/consent.js` (cookie notice), `js/tracking.js` (contact-click events)
 - `CNAME` = `www.bloomchiro.co.za`. Never delete it.
+- Condition pages live in folders (`neck-shoulder-pain/index.html` is the template): absolute asset paths, nav links to `/#section`, their own in-page `#book` section with the Bookem widget, card icons as inline SVG. Add each new page to `sitemap.xml` and link its pill in the homepage "What We Treat" list.
 - `scripts/deploy-staging.sh` publishes the staging copy. `_config.yml` keeps `scripts/` and this file off the live site.
 
 ## Hosting and DNS
@@ -34,4 +40,4 @@ Static site for Dr. Melissa Crestani's chiropractic practice, live at https://ww
 
 - The Bookem widget (`embed.bookem.com/embed.js`, a custom element, not an iframe) rewrites the `href` of every clicked link to an absolute URL. Read `anchor.hash`, never `getAttribute('href')`, when handling in-page links.
 - The hero `<img>` keeps its `aspect-ratio` in CSS so a replacement photo doesn't change the layout or the arch frame.
-- The About illustration has an opaque white background; `mix-blend-mode: multiply` blends it into the section.
+- `about-illustration.png` has a transparent background (white converted to alpha), so it works on any section colour.

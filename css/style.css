@@ -1025,6 +1025,18 @@ a.condition-pill { display: inline-flex; align-items: center; gap: 6px; cursor: 
   transform: translateY(-2px);
 }
 
+/* ── Condition page cards hover — gentle lift ── */
+.cause, .treat {
+  transition: transform 0.35s cubic-bezier(.22,1,.36,1),
+              box-shadow 0.35s cubic-bezier(.22,1,.36,1),
+              border-color 0.35s ease;
+}
+.cause:hover, .treat:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(30,45,31,.1);
+  border-color: var(--sage-light);
+}
+
 /* ── Testimonial card hover ── */
 .testimonial-card {
   transition: transform 0.35s cubic-bezier(.22,1,.36,1),
@@ -1093,6 +1105,8 @@ a.condition-pill { display: inline-flex; align-items: center; gap: 6px; cursor: 
   .service-card,
   .pricing-card,
   .testimonial-card,
+  .cause,
+  .treat,
   .condition-pill,
   .why__item,
   .btn,

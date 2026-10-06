@@ -219,6 +219,16 @@ if ('IntersectionObserver' in window && !reducedMotion) {
   // Contact details
   animateEl('.contact__detail', 'anim-fade-up', true);
   animateEl('.map-placeholder, .contact__map', 'anim-slide-right');
+
+  // Condition pages
+  animateEl('.breadcrumb, .page-hero__lead, .page-hero__actions, .page-facts', 'anim-fade-up', true);
+  animateEl('.page-hero__heading', 'anim-heading');
+  animateEl('.page-hero__media', 'anim-slide-right');
+  animateEl('.check-list li', 'anim-fade-up', true);
+  animateEl('.cause, .treat', 'anim-fade-up', true);
+  animateEl('.steps li', 'anim-slide-left', true);
+  animateEl('.page-review', 'anim-fade-up');
+  animateEl('.cta-band__inner', 'anim-fade-up');
 }
 
 /* ── Pricing counter animation ── */

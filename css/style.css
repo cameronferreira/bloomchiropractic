@@ -798,41 +798,26 @@ details[open] .faq__question        { color: var(--sage-dark); }
   background: var(--sage-pale) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M5 9.5l2.5 2.5L13 6.5' fill='none' stroke='%233D5440' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 18px no-repeat;
 }
 
-.cause-grid, .treat-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.card-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-}
-.cause h3, .treat h3 { font-size: 16px; font-weight: 600; line-height: 1.3; color: var(--forest); margin-bottom: 6px; }
-.cause p, .treat p { font-size: 14px; line-height: 1.6; color: var(--text-muted); }
-
-/* Causes: soft borderless cards with a blush icon badge */
-.cause {
-  background: var(--card-bg);
-  border: 1px solid transparent;
-  border-radius: var(--radius-lg);
-  padding: 24px;
-  box-shadow: 0 1px 2px rgba(30,45,31,.04), 0 6px 18px rgba(30,45,31,.06);
-}
-.cause .card-icon { background: var(--blush); color: var(--sage-dark); margin-bottom: 16px; }
-
-/* Treatments: icon beside the text, solid sage badge */
-.treat {
-  display: grid;
-  grid-template-columns: 44px 1fr;
-  column-gap: 16px;
-  align-content: start;
+.cause-grid, .treat-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+/* Same card system as the homepage service cards: 12px corners, thin
+   border, blush circle icon above a Playfair title, lift on hover */
+.cause, .treat {
   background: var(--card-bg);
   border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 22px;
+  border-radius: var(--radius);
+  padding: 28px;
 }
-.treat .card-icon { grid-row: span 2; background: var(--sage); color: #fff; }
+.card-icon { display: block; width: 48px; height: 48px; margin-bottom: 18px; }
+.card-icon svg { display: block; width: 48px; height: 48px; }
+.cause h3, .treat h3 {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--forest);
+  margin-bottom: 10px;
+}
+.cause p, .treat p { font-size: 15px; line-height: 1.65; color: var(--text-muted); }
 
 .steps { counter-reset: step; display: grid; gap: 16px; list-style: none; padding: 0; }
 .steps li { counter-increment: step; position: relative; padding: 20px 20px 20px 72px; background: var(--card-bg); border-radius: var(--radius); }
@@ -939,12 +924,9 @@ a.condition-pill { display: inline-flex; align-items: center; gap: 6px; cursor: 
   .check-list       { grid-template-columns: 1fr; gap: 10px; }
   .cause-grid, .treat-list { grid-template-columns: 1fr 1fr; gap: 10px; }
   .cause, .treat    { padding: 16px; }
-  .treat            { grid-template-columns: 1fr; }
-  .treat .card-icon { grid-row: auto; margin-bottom: 12px; }
-  .card-icon        { width: 36px; height: 36px; border-radius: 10px; }
-  .card-icon svg    { width: 18px; height: 18px; }
-  .cause .card-icon { margin-bottom: 12px; }
-  .cause h3, .treat h3 { font-size: 14px; }
+  .card-icon, .card-icon svg { width: 40px; height: 40px; }
+  .card-icon        { margin-bottom: 12px; }
+  .cause h3, .treat h3 { font-size: 16px; margin-bottom: 6px; }
   .cause p, .treat p { font-size: 13px; line-height: 1.5; }
   .steps li         { padding: 16px 16px 16px 60px; }
   .steps li::before { left: 16px; top: 16px; width: 32px; height: 32px; }
@@ -1073,7 +1055,7 @@ a.condition-pill { display: inline-flex; align-items: center; gap: 6px; cursor: 
 }
 .cause:hover, .treat:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(30,45,31,.1);
+  box-shadow: var(--shadow-lg);
   border-color: var(--sage-light);
 }
 

@@ -656,7 +656,7 @@ details[open] .faq__question        { color: var(--sage-dark); }
 .legal ul { list-style: disc; padding-left: 20px; display: grid; gap: 10px; margin-bottom: 14px; }
 .legal a, .legal__link-btn { color: var(--sage-dark); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
 .legal__link-btn { background: none; border: 0; padding: 0; font: inherit; cursor: pointer; }
-.legal .section__eyebrow { color: var(--gold); }
+.legal .section__eyebrow { color: var(--gold); text-align: left; }
 .legal .btn--primary { color: #fff; text-decoration: none; }
 .legal__table-wrap { overflow-x: auto; margin: 8px 0 18px; }
 .legal__table { width: 100%; border-collapse: collapse; font-size: 14px; }
@@ -922,11 +922,14 @@ a.condition-pill { display: inline-flex; align-items: center; gap: 6px; cursor: 
   .page-hero        { padding: calc(var(--nav-h) + 20px) 0 36px; }
   .breadcrumb       { margin-bottom: 20px; }
   .condition-page .section__eyebrow,
-  .condition-page .section__heading { text-align: left; }
+  .condition-page .section__heading,
+  .condition-page .section__sub { text-align: left; }
   .page-hero__heading { font-size: clamp(32px, 9vw, 40px); }
   .page-hero__lead  { font-size: 17px; margin-bottom: 24px; }
   .page-hero__actions { flex-direction: column; align-items: flex-start; gap: 14px; margin-bottom: 28px; }
   .page-hero__actions .btn { display: flex; justify-content: center; width: 100%; }
+  /* Secondary action sits on the full-width button's centre line: one button pair */
+  .page-hero__actions .whatsapp-link { align-self: center; }
   .page-hero__media { display: none; }
   .page-facts       { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; padding-top: 20px; }
   .page-facts strong { font-size: 15px; }

@@ -40,7 +40,7 @@ head_extra = f'''  <meta name="robots" content="noindex, nofollow" />
 badge = '''  <div style="position:fixed;top:calc(var(--nav-h) + 8px);right:12px;z-index:2000;background:#A8903A;color:#fff;font:600 12px/1 Inter,system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;padding:6px 12px;border-radius:50px;box-shadow:0 2px 8px rgba(0,0,0,.2);pointer-events:none">Staging preview</div>
 '''
 
-for page in build.glob('*.html'):
+for page in sorted(build.rglob('*.html')):
     s = page.read_text()
     before = s
     s, n1 = re.subn(r'[ \t]*<!-- Google Tag Manager -->.*?<!-- End Google Tag Manager -->\n', '', s, flags=re.S)
@@ -52,7 +52,7 @@ for page in build.glob('*.html'):
     if 'googletagmanager.com/gtm.js' in s or 'noindex' not in s or 'Staging preview' not in s:
         sys.exit(f'{page.name}: staging transform incomplete; staging not published')
     page.write_text(s)
-    print(f'  {page.name}: ' + ('GTM removed, ' if n1 else 'no GTM, ') + 'noindex + badge added, Bookem tracking suppressed')
+    print(f'  {page.relative_to(build)}: ' + ('GTM removed, ' if n1 else 'no GTM, ') + 'noindex + badge added, Bookem tracking suppressed')
 EOF
 
 SOURCE_COMMIT="$(git -C "$ROOT" rev-parse --short HEAD)"

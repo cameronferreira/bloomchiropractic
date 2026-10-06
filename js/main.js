@@ -304,7 +304,7 @@ if ('IntersectionObserver' in window) {
   const desktopBtn = document.querySelector('.book-sticky-desktop');
 
   // Watch ALL buttons linking to #book (excluding footer and sticky itself)
-  const allBookBtns = [...document.querySelectorAll('a[href="#book"]')]
+  const allBookBtns = [...document.querySelectorAll('a[href="#book"], a[href="/#book"]')]
     .filter(el => !el.closest('.footer') && !el.classList.contains('book-sticky-desktop') && !el.closest('.book-sticky-mobile') && !el.closest('.nav__links'));
 
   const watchTargets = [

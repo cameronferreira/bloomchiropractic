@@ -878,11 +878,33 @@ a.condition-pill { display: inline-flex; align-items: center; gap: 6px; cursor: 
 
 /* Mobile: hide pill, show bottom bar */
 @media (max-width: 600px) {
-  .page-hero        { padding: calc(var(--nav-h) + 24px) 0 48px; }
-  .check-list, .cause-grid, .treat-list { grid-template-columns: 1fr; }
-  .page-hero__actions { flex-direction: column; align-items: flex-start; }
+  /* Condition pages read like an article on a phone: one left edge,
+     short hero, compact two-up cards, no decorative illustration */
+  .page-hero        { padding: calc(var(--nav-h) + 20px) 0 36px; }
+  .breadcrumb       { margin-bottom: 20px; }
+  .condition-page .section__eyebrow,
+  .condition-page .section__heading { text-align: left; }
+  .page-hero__heading { font-size: clamp(32px, 9vw, 40px); }
+  .page-hero__lead  { font-size: 17px; margin-bottom: 24px; }
+  .page-hero__actions { flex-direction: column; align-items: flex-start; gap: 14px; margin-bottom: 28px; }
   .page-hero__actions .btn { display: flex; justify-content: center; width: 100%; }
+  .page-hero__media { display: none; }
+  .page-facts       { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding-top: 20px; }
+  .page-facts strong { font-size: 15px; }
+  .page-facts span  { font-size: 12px; line-height: 1.35; }
+  .page-section .section__heading { margin-bottom: 16px; }
+  .page-section__inner > p { font-size: 16px; margin-bottom: 16px; }
+  .check-list       { grid-template-columns: 1fr; gap: 10px; }
+  .cause-grid, .treat-list { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .cause, .treat    { padding: 14px; }
+  .cause h3, .treat h3 { font-size: 14px; line-height: 1.3; }
+  .cause p, .treat p { font-size: 13px; line-height: 1.5; }
+  .steps li         { padding: 16px 16px 16px 60px; }
+  .steps li::before { left: 16px; top: 16px; width: 32px; height: 32px; }
   .callout          { padding: 20px; }
+  .cta-band         { padding: 56px 0; }
+  .cta-band__actions { flex-direction: column; align-items: flex-start; }
+  .cta-band__actions .btn { display: flex; justify-content: center; width: 100%; }
   .cookie-consent { padding: 16px; }
   .cookie-banner { padding: 24px 20px 20px; }
   /* Cookie notice takes the bottom of the screen; the sticky Book bar

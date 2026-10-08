@@ -791,7 +791,10 @@ details[open] .faq__question        { color: var(--sage-dark); }
 @media (max-width: 600px) {
   .cookie-consent { padding: 16px; }
   .cookie-banner { padding: 24px 20px 20px; }
-  .cookie-consent--inline { inset: auto 12px calc(84px + env(safe-area-inset-bottom, 0px)) 12px; } /* above the sticky Book bar */
+  /* Cookie notice takes the bottom of the screen; the sticky Book bar
+     waits until the visitor has chosen, then slides up in its place */
+  .cookie-consent--inline { inset: auto 12px calc(12px + env(safe-area-inset-bottom, 0px)) 12px; }
+  .cookie-pending .book-sticky-mobile { display: none; }
   .cookie-consent--inline .cookie-banner { max-width: none; }
   .book-sticky-desktop { display: none; }
   .book-sticky-mobile  { display: block; }

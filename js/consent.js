@@ -67,8 +67,11 @@
     else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
   }
 
+  // While the notice is open, <html> carries .cookie-pending so the mobile
+  // sticky Book bar can step aside; it slides back once a choice is made.
   function open() {
     dialog.hidden = false;
+    document.documentElement.classList.add('cookie-pending');
     if (!modal) return;
     lastFocus = document.activeElement;
     document.documentElement.classList.add('cookie-open');
@@ -78,6 +81,7 @@
 
   function close() {
     dialog.hidden = true;
+    document.documentElement.classList.remove('cookie-pending');
     if (!modal) return;
     document.documentElement.classList.remove('cookie-open');
     document.removeEventListener('keydown', trapTab);

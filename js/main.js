@@ -203,6 +203,7 @@ if ('IntersectionObserver' in window && !reducedMotion) {
 
   // Condition pills — staggered
   animateEl('.condition-pill', 'anim-fade-up', true);
+  animateEl('.condition-card', 'anim-fade-up', true);
 
   // Why items — staggered
   animateEl('.why__item', 'anim-fade-up', true);

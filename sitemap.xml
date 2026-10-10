@@ -2,42 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.bloomchiro.co.za/</loc>
-    <lastmod>2026-10-06</lastmod>
+    <lastmod>2026-10-10</lastmod>
   </url>
   <url>
     <loc>https://www.bloomchiro.co.za/privacy</loc>
-    <lastmod>2026-10-06</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bloomchiro.co.za/neck-shoulder-pain</loc>
-    <lastmod>2026-10-06</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bloomchiro.co.za/headaches-migraines</loc>
     <lastmod>2026-10-10</lastmod>
   </url>
   <url>
-    <loc>https://www.bloomchiro.co.za/mid-lower-back-pain</loc>
+    <loc>https://www.bloomchiro.co.za/neck-shoulder-pain/</loc>
     <lastmod>2026-10-10</lastmod>
   </url>
   <url>
-    <loc>https://www.bloomchiro.co.za/muscle-pain-spasms</loc>
+    <loc>https://www.bloomchiro.co.za/headaches-migraines/</loc>
     <lastmod>2026-10-10</lastmod>
   </url>
   <url>
-    <loc>https://www.bloomchiro.co.za/pinched-nerves</loc>
+    <loc>https://www.bloomchiro.co.za/mid-lower-back-pain/</loc>
     <lastmod>2026-10-10</lastmod>
   </url>
   <url>
-    <loc>https://www.bloomchiro.co.za/sports-injuries</loc>
+    <loc>https://www.bloomchiro.co.za/muscle-pain-spasms/</loc>
     <lastmod>2026-10-10</lastmod>
   </url>
   <url>
-    <loc>https://www.bloomchiro.co.za/sprained-joints-ligaments</loc>
+    <loc>https://www.bloomchiro.co.za/pinched-nerves/</loc>
     <lastmod>2026-10-10</lastmod>
   </url>
   <url>
-    <loc>https://www.bloomchiro.co.za/hip-knee-pain</loc>
+    <loc>https://www.bloomchiro.co.za/sports-injuries/</loc>
+    <lastmod>2026-10-10</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bloomchiro.co.za/sprained-joints-ligaments/</loc>
+    <lastmod>2026-10-10</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bloomchiro.co.za/hip-knee-pain/</loc>
     <lastmod>2026-10-10</lastmod>
   </url>
 </urlset>

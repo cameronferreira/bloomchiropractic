@@ -14,6 +14,7 @@ Static site for Dr. Melissa Crestani's chiropractic practice, live at https://ww
 
 - Write site copy in the first person plural ("we", "us"). Don't refer to Dr. Melissa in the third person, except in quoted reviews, the footer credential line and the AHPCSA disclaimer.
 - No promises of results; describe what we do and what to expect.
+- Never add a "When should I see a doctor?" section, FAQ, callout or similar red-flag/referral warning on any page (owner's explicit, permanent instruction).
 
 ## Structure
 

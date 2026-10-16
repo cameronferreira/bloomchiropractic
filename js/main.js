@@ -1,7 +1,7 @@
 /* ============================================================
    BLOOM CHIROPRACTIC — main.js
    Animations: scroll reveals, hover micro-interactions,
-   hero entrance, pricing counters, scroll progress bar,
+   hero entrance, scroll progress bar,
    button ripple, image scale on scroll
    All animations respect prefers-reduced-motion
    ============================================================ */
@@ -230,36 +230,6 @@ if ('IntersectionObserver' in window && !reducedMotion) {
   animateEl('.steps li', 'anim-slide-left', true);
   animateEl('.page-review', 'anim-fade-up');
   animateEl('.cta-band__inner', 'anim-fade-up');
-}
-
-/* ── Pricing counter animation ── */
-if (!reducedMotion) {
-  const counters = document.querySelectorAll('.pricing-card__amount');
-
-  const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      const el     = entry.target;
-      const target = parseInt(el.textContent, 10);
-      const start  = Math.max(0, target - 200);
-      const duration = 800;
-      const startTime = performance.now();
-
-      function update(now) {
-        const elapsed  = now - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        // Ease out cubic
-        const eased = 1 - Math.pow(1 - progress, 3);
-        el.textContent = Math.round(start + (target - start) * eased);
-        if (progress < 1) requestAnimationFrame(update);
-      }
-
-      requestAnimationFrame(update);
-      counterObserver.unobserve(el);
-    });
-  }, { threshold: 0.5 });
-
-  counters.forEach(el => counterObserver.observe(el));
 }
 
 /* ── Button ripple effect ── */

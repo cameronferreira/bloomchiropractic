@@ -29,6 +29,7 @@ Static site for Dr. Melissa Crestani's chiropractic practice, live at https://ww
 
 - **Live:** GitHub Pages, repo `cameronferreira/bloomchiropractic`, custom domain `www.bloomchiro.co.za` (apex redirects to www), HTTPS enforced. Domain verified on the GitHub account.
 - **Staging:** repo `cameronferreira/bloomchiropractic-staging`, domain `staging.bloomchiro.co.za`. The deploy script strips GTM, suppresses Bookem tracking via its `bookem-tracking-preview:<business id>` sessionStorage flag, and adds noindex, robots.txt and a "Staging preview" badge. Bookings on staging are real.
+- **Old domain:** `mcchiropractic.co.za` (DNS at Afrihost) forwards to www.bloomchiro.co.za via the repo `cameronferreira/mcchiropractic-redirect` (GitHub Pages, meta-refresh + JS redirect pages, HTTPS enforced). The old Wix site is unpublished.
 - **DNS:** Afrihost (nameservers ns.dns1.co.za, ns.dns2.co.za, ns.otherdns.net, ns.otherdns.com). Email is Google Workspace (MX smtp.google.com). Afrihost's editor rejects record names that start with `_` when entered in full; enter the short name instead.
 
 ## Tracking

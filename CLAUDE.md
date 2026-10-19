@@ -12,7 +12,7 @@ Static site for Dr. Melissa Crestani's chiropractic practice, live at https://ww
 
 ## Copy voice
 
-- Write site copy in the first person plural ("we", "us"). Don't refer to Dr. Melissa in the third person, except in quoted reviews, the footer credential line and the AHPCSA disclaimer.
+- NEVER refer to Dr. Melissa in the third person (user's rule, 2026-10-19). All site copy, buttons, headings, FAQs, meta descriptions and the privacy policy use "we"/"us" (e.g. "Meet Your Chiropractor", "Send us a WhatsApp"). Her name may appear only as an identifier: quoted reviews, the footer credential line, the AHPCSA disclaimer, the page title, image alt text, JSON-LD and the privacy policy's Information Officer line.
 - No promises of results; describe what we do and what to expect.
 - Never add a "When should I see a doctor?" section, FAQ, callout or similar red-flag/referral warning on any page (owner's explicit, permanent instruction).
 

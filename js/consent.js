@@ -14,7 +14,9 @@
    ============================================================ */
 
 (function () {
-  var KEY = 'bloom-consent';
+  var KEY = 'bloom-consent-2';
+  // Renamed from 'bloom-consent' in Nov 2026 so earlier choices (incl. Decline) reset
+  try { localStorage.removeItem('bloom-consent'); } catch (e) {}
 
   function read() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
   function save(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }

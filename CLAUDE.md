@@ -34,7 +34,7 @@ Static site for Dr. Melissa Crestani's chiropractic practice, live at https://ww
 
 ## Tracking
 
-- Google Tag Manager `GTM-KD7XTSG` in `<head>`, preceded by Consent Mode v2 defaults (opt-out, implied consent: granted unless the visitor turned tracking off, stored in localStorage `bloom-consent`), with `ads_data_redaction`. The cookie notice is information only (no Decline button, owner's choice to keep Ads conversion data) and fades after one screen of scrolling; opting out is the "Turn off tracking" button on `/privacy#cookies`, linked from "Cookie settings" in every footer.
+- Google Tag Manager `GTM-KD7XTSG` in `<head>`, preceded by Consent Mode v2 defaults (opt-out, implied consent: granted unless the visitor turned tracking off, stored in localStorage `bloom-consent-2`), with `ads_data_redaction`. The cookie notice is information only (no Decline button, owner's choice to keep Ads conversion data) and fades after one screen of scrolling; opting out is the "Turn off tracking" button on `/privacy#cookies`, linked from "Cookie settings" in every footer.
 - GA4 `G-0K7MTC4NCR`, configured inside GTM. Bookem's own Google Analytics setting is off; its GTM setting stays on so it pushes `booking_created` and `booking_cancelled`.
 - dataLayer events from the site: `whatsapp_click`, `email_click`, `phone_click`, `cookie_consent_update`.
 

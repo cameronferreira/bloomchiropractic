@@ -111,5 +111,22 @@
 
   dialog.querySelector('[data-consent="accept"]').addEventListener('click', function () { choose(true); close(); });
 
-  if (!read()) open();
+  // The notice is information only, so it also fades away once the visitor
+  // has scrolled about one screen height, and is remembered as seen.
+  function fadeOnScroll() {
+    var startY = window.scrollY;
+    function onScroll() {
+      if (Math.abs(window.scrollY - startY) < window.innerHeight) return;
+      window.removeEventListener('scroll', onScroll);
+      choose(true);
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce) { close(); return; }
+      dialog.style.transition = 'opacity .4s ease';
+      dialog.style.opacity = '0';
+      setTimeout(function () { close(); dialog.style.transition = dialog.style.opacity = ''; }, 400);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
+  if (!read()) { open(); fadeOnScroll(); }
 })();

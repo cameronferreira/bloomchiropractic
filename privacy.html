@@ -77,21 +77,22 @@
     <h2>How we use your information</h2>
     <p>We use personal information to book and manage appointments, respond to your questions, provide your treatment, improve this website and meet our legal obligations. We do not sell your personal information, and we do not use it for marketing without your consent.</p>
 
-    <h2>Cookies</h2>
-    <p>Cookies are small files stored in your browser. We use Google Analytics cookies from your first visit to understand how the site is used. If you click <strong>Decline</strong> on our cookie notice, we remove these cookies and Google Analytics stops using cookies for your visits, receiving only basic, cookieless signals.</p>
+    <h2 id="cookies">Cookies</h2>
+    <p>Cookies are small files stored in your browser. We use Google Analytics cookies from your first visit to understand how the site is used. If you would rather not be tracked, use the button below: we remove these cookies and Google Analytics stops using cookies for your visits, receiving only basic, cookieless signals.</p>
     <div class="legal__table-wrap">
       <table class="legal__table">
         <thead>
           <tr><th>Name</th><th>Provider</th><th>Purpose</th><th>Duration</th></tr>
         </thead>
         <tbody>
-          <tr><td><code>bloom-consent</code></td><td>This website</td><td>Remembers your cookie choice (stored in your browser's local storage)</td><td>Until you clear it</td></tr>
-          <tr><td><code>_ga</code>, <code>_ga_*</code></td><td>Google Analytics</td><td>Distinguishes visitors to produce usage statistics. Removed if you decline.</td><td>Up to 2 years</td></tr>
+          <tr><td><code>bloom-consent</code></td><td>This website</td><td>Remembers whether you turned tracking off (stored in your browser's local storage)</td><td>Until you clear it</td></tr>
+          <tr><td><code>_ga</code>, <code>_ga_*</code></td><td>Google Analytics</td><td>Distinguishes visitors to produce usage statistics. Removed if you turn tracking off.</td><td>Up to 2 years</td></tr>
           <tr><td>Booking cookies</td><td>Bookem, Stripe</td><td>Make the booking and payment system work and help prevent fraud</td><td>Varies</td></tr>
         </tbody>
       </table>
     </div>
-    <p>You can change your choice at any time using <button type="button" class="legal__link-btn" data-cookie-settings>Cookie settings</button>, or by clearing cookies in your browser.</p>
+    <p class="legal__consent"><span data-consent-status>Tracking is on for this browser.</span> <button type="button" class="legal__link-btn" data-consent-toggle>Turn off tracking</button></p>
+    <p>You can also block or clear cookies in your browser settings at any time.</p>
 
     <h2>Sharing and transfers outside South Africa</h2>
     <p>We share personal information only with service providers who help us run the practice and this website: Bookem, Stripe, Google and GitHub. Some of them store information outside South Africa, for example in the United States. We only use providers that protect personal information to a standard comparable to POPIA.</p>
@@ -114,7 +115,7 @@
     <div class="footer__bottom">
       <div class="container">
         <p>© <span id="year"></span> Bloom Chiropractic. All rights reserved.</p>
-        <p class="footer__legal"><a href="privacy">Privacy &amp; Cookie Policy</a> · <button type="button" class="footer__link-btn" data-cookie-settings>Cookie settings</button></p>
+        <p class="footer__legal"><a href="privacy">Privacy &amp; Cookie Policy</a> · <a href="#cookies">Cookie settings</a></p>
       </div>
     </div>
   </footer>
@@ -123,7 +124,6 @@
     <div class="cookie-banner" tabindex="-1">
       <p class="cookie-banner__text" id="cookieText">We use analytics cookies to keep this site in good alignment. <a href="privacy">Privacy &amp; Cookie Policy</a></p>
       <div class="cookie-banner__actions">
-        <button type="button" class="cookie-banner__btn cookie-banner__btn--ghost" data-consent="decline">Decline</button>
         <button type="button" class="cookie-banner__btn" data-consent="accept">Crack on</button>
       </div>
     </div>

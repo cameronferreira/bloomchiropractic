@@ -3,8 +3,10 @@
    Cookie consent (opt-out, Google Consent Mode v2).
 
    Defaults are set inline in <head>, before Google Tag Manager
-   loads: granted unless the visitor has declined. This file shows
-   the notice and tells GTM about the choice:
+   loads: granted unless the visitor turned tracking off. The notice
+   is information only (one "Crack on" button); opting out happens on
+   the privacy page (#cookies), via [data-consent-toggle]. Choices
+   reach GTM as:
      1. gtag('consent', 'update', ...)       read by Google tags'
                                              built-in consent checks
      2. dataLayer event 'cookie_consent_update'  for GTM triggers,
@@ -44,6 +46,25 @@
         document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/' + d;
       });
     });
+  }
+
+  function choose(granted) {
+    save(granted ? 'granted' : 'denied');
+    update(granted);
+    if (!granted) clearAnalyticsCookies();
+  }
+
+  // Privacy page: turn tracking off or back on
+  var toggle = document.querySelector('[data-consent-toggle]');
+  var status = document.querySelector('[data-consent-status]');
+  function renderToggle() {
+    var off = read() === 'denied';
+    status.textContent = off ? 'Tracking is off for this browser.' : 'Tracking is on for this browser.';
+    toggle.textContent = off ? 'Turn tracking back on' : 'Turn off tracking';
+  }
+  if (toggle && status) {
+    renderToggle();
+    toggle.addEventListener('click', function () { choose(read() === 'denied'); renderToggle(); });
   }
 
   var year = document.getElementById('year');
@@ -88,19 +109,7 @@
     if (lastFocus && lastFocus.focus) lastFocus.focus();
   }
 
-  function choose(granted) {
-    save(granted ? 'granted' : 'denied');
-    update(granted);
-    if (!granted) clearAnalyticsCookies();
-    close();
-  }
-
-  dialog.querySelector('[data-consent="accept"]').addEventListener('click', function () { choose(true); });
-  dialog.querySelector('[data-consent="decline"]').addEventListener('click', function () { choose(false); });
-
-  document.querySelectorAll('[data-cookie-settings]').forEach(function (el) {
-    el.addEventListener('click', open);
-  });
+  dialog.querySelector('[data-consent="accept"]').addEventListener('click', function () { choose(true); close(); });
 
   if (!read()) open();
 })();
